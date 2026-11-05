@@ -13,560 +13,7 @@
 <body class="enable-hover home">
 <div style="position:sticky;top:0;z-index:100000;background:#111;color:#fff;font:500 13px/1.3 system-ui,sans-serif;padding:8px 16px;text-align:center">
 Staging preview &middot; not the live site &middot; read-only &middot; <a href="editor/" style="color:#9cc3ff">Try the editor demo &rarr;</a></div>
-<div>
-<style>
-
-
-
-
-
-
-
-
-._tab {
-    overflow: hidden;
-    display: flex;
-    margin: 0 auto;
-    flex-direction: row;
-}
-
-
-._tab h2 {
-    font-family: 'tungsten', sans-serif;
-    font-size: 2rem;
-    font-weight: 400;
-    padding: 18px 0 14px;
-    color: #000;
-    width: auto;
-    text-align: left;
-}
-
-
-._view_all_arrow {
-    float: right;
-    text-decoration: none;
-}
-
-._view_all_arrow:hover {
-    text-decoration: underline;
-}
-
-._view_all_arrow:after {
-    vertical-align: middle;
-    display: inline-block;
-    font: normal normal normal 30px / 1 "Font Awesome 6 Pro";
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f105";
-    font-weight: 900;
-    margin-left: 6px;
-    font-size: 1.2rem;
-    padding-bottom: 2px;
-}
-
-                a.menu-item:hover {
-                 text-decoration: none !important;
-                }
-    
-                a.menu-item::after{
-                    white-space: pre;
-                    margin: -4px 0 0 5px !important;
-                    font-size: 1rem !important;
-                    font-weight: 900 !important;
-                }
-
-
-
-@media only screen and (max-width: 598px) {
-
-    ._tab {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    ._tab h2 {
-        font-size: 2rem;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    ._view_all_arrow {
-        float: none;
-        text-decoration: none;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        margin-top: 16px;
-    }
-
-    ._view_all_arrow:after {
-        padding-top: 2px;
-    }
-}
-
-
-
-
-
-html body .ui-front {
-    z-index: 9999;
-}
-
-ul.ui-autocomplete.search-provider-autocomplete {
-    max-height: 68vh !important;
-    overflow-y: hidden !important;
-    height: 100% !important;
-    min-height: auto !important;
-
-}
-
-.related-categories ul li a,
-.related-items ul li a {
-    text-decoration: none;
-    margin: 0 12px 12px 0;
-    display: inline-block;
-    padding: 16px 16px 12px;
-    background-color: #f2f2f2;
-    text-transform: capitalize;
-}
-
-.related-categories ul li,
-.related-items ul li {
-    margin: 0 !important;
-}
-
-
-#newslettersignup {
-    margin-top: 32px !Important;
-}
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 598px) {
-    ._tab h2 {
-        font-size: 2rem;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-
-    #sub-cat-page .sc-desktop {
-        display: block;
-        height: 360px !important;
-    }
-    
-    #sub-cat-page .sc-desktop img{
-        height: 360px !important;
-    }
-
-    ._view_all_arrow {
-        margin-top: 16px !important;
-    }
-
-}
-
-
-
-
-
-#blog .bottom-navigation {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}
-
-
-</style>
-</div>
-<div>
-<script>
-    function cleanBackgroundImageSrc() {
-        // Get all elements on the page
-        const elements = document.querySelectorAll('*');
-
-        // Loop through each element
-        elements.forEach((element) => {
-            const style = element.getAttribute('style');
-
-            // Check if the element has an inline style and contains a background-image
-            if (style && style.includes('background-image')) {
-                const backgroundImageMatch = style.match(/background-image:\s*url\(["']?(.*?)["']?\)/);
-
-                // If a background-image URL is found
-                if (backgroundImageMatch && backgroundImageMatch[1].includes('cdn-cgi/image/f=auto,width=1496/')) {
-                    const originalUrl = backgroundImageMatch[1];
-                    const cleanedUrl = originalUrl.replace('cdn-cgi/image/f=auto,width=1496/', '');
-
-                    // Update the inline style with the cleaned URL
-                    const cleanedStyle = style.replace(originalUrl, cleanedUrl);
-                    element.setAttribute('style', cleanedStyle);
-                }
-            }
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', cleanBackgroundImageSrc);
-</script>
-
-
-
-<script>
-
-    function cleanImageSrc() {
-  // Get all img elements on the page
-  const images = document.querySelectorAll('img');
-
-  // Loop through each img element
-  images.forEach((img) => {
-    const src = img.getAttribute('src');
-
-    // Check if the src contains the unwanted path and remove it
-    if (src.includes('cdn-cgi/image/f=auto,width=1496/')) {
-      const cleanedSrc = src.replace('cdn-cgi/image/f=auto,width=1496/', '');
-      img.setAttribute('src', cleanedSrc);
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', cleanImageSrc);
-
-
-</script>
-
-
-<script>
-    function cleanBackgroundImageSrc() {
-        // Get all elements on the page
-        const elements = document.querySelectorAll('*');
- 
-        // Loop through each element
-        elements.forEach((element) => {
-            const style = element.getAttribute('style');
- 
-            // Check if the element has an inline style and contains a background-image
-            if (style && style.includes('background-image')) {
-                const backgroundImageMatch = style.match(/background-image:\s*url\(["']?(.*?)["']?\)/);
- 
-                // If a background-image URL is found
-                if (backgroundImageMatch && backgroundImageMatch[1].includes('cdn-cgi/image/f=auto,width=748/')) {
-                    const originalUrl = backgroundImageMatch[1];
-                    const cleanedUrl = originalUrl.replace('cdn-cgi/image/f=auto,width=748/', '');
- 
-                    // Update the inline style with the cleaned URL
-                    const cleanedStyle = style.replace(originalUrl, cleanedUrl);
-                    element.setAttribute('style', cleanedStyle);
-                }
-            }
-        });
-    }
- 
-    document.addEventListener('DOMContentLoaded', cleanBackgroundImageSrc);
-</script>
-
-
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    if (document.title === "Performance Bicycle - Gravel Starts Here") {
-
-        const style = document.createElement("style");
-        style.innerHTML = `
-            ul.ui-autocomplete { 
-                position: fixed !important; 
-            }
-        `;
-
-        document.head.appendChild(style);
-    }
-
-});
-</script>
-</div>
 <div id="wrapper"><div id="maincontent"><div id="categorypage"><div id="hosted-content">
-<div>
-<style>
-    .level0 .topbrands {
-        display: none !important;
-    }
-
-</style>
-
-<style>
-
-
-
-    #above-header a {
-      text-decoration: none !important;
-    }
-
-    #above-header b a:hover {
-      text-decoration: underline !important;
-    }
-
-
-    html.menu-clicked.dark-content #maincontent:after {
-        background: transparent !important;
-    }
-
-
-    html.menu-clicked.dark-content #prefooter,
-    html.menu-clicked.dark-content footer {
-        opacity: 1 !important;
-    }
-
-    #above-header #above-header-phone,
-    #above-header #above-header-chat {
-        text-transform: uppercase;
-        display: none;
-    }
-
-
-    #categorypage {
-        padding-top: 0 !important;
-    }
-
-
-    #categorypage .body {
-        padding-top: 12px !important;
-    }
-
-
-    .covid19 {
-        width: 100%;
-        margin: 0 auto;
-        max-width: 1000px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .covid19 a {
-        color: #464647;
-    }
-
-    .covid19 a:hover {
-        color: #d04500;
-    }
-    
-        #above-header-global-message-contacts{
-        display: flex !important;
-        }
-
-
-    .covid19 p {
-        display: flex;
-        justify-content: space-between;
-        width: 1000px;
-        margin: 0 auto;
-        align-items: center;
-
-    }
-
-    #menu-wrapper {
-        box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 15px;
-    }
-    
-    #mainnav ul li.hover>div {
-        opacity: 1;
-        transform: translateY(0);
-        height: auto;
-    }
-
-
-    #mainnav.alternate-menu>ul>li>div {
-        top: unset !important;
-    }
-
-    #above-header>div>div:nth-child(2n) {
-    display: none !important;
-   }
-
-    #maincontent {
-         width: 100vw;
-         
-}
-    #above-header>div {
-    display: block !important;
-    }
-
-    
-    @media screen and (max-width: 598px) {
-        
-                 #maincontent {
-            top: 16px !important;
-                }
-                    .covid19{
-                    flex-direction: column;
-                       align-items: center;
-                    }
-
-                    .covid19 p {
-                    width: 100%;
-                    flex-direction: column;
-                    }
-        
-                    #above-header-global-message-contacts {
-                    justify-content: center;
-                    line-height: 1.2rem;
-                    padding-top: 8px;
-                    }   
-        
-                    #above-header-global-message-contacts button{
-                    display: none !important;
-                    }
-            }
-    
-</style>
-
-<div class="covid19">
-  
-<span style="padding-top: 4px;">
-<b>FREE U.S. Shipping on orders of $99 or more*.</b>
-    <nobr><a href="/shipping-information/i751">See complete details &gt;</a></nobr>
-    </span>
-      
-    
-
-<span style="max-width: 295px; width: 100%; display: flex; justify-content: space-between;"></span> 
-   
-<div id="above-header-global-message-contacts">
-    <button class="header-link" href="tel:1-800-727-2453" data-event="header-phone" style="display: flex; margin-right: 30px;"> <i class="fal fa-mobile" title="Call Us" ></i> <span>1-800-727-2453</span>  
-    </button> 
-    
-    <button class="header-link" id="header-chat" data-event="header-chat-desktop" style="display: flex;"> 
-    <i class="far fa-comment-alt-lines" title="Chat" aria-hidden="true"></i>
-    <span >Live Chat</span> 
-    </button> 
-</div>
-
-
-
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Target the page title
-        const pageTitle = document.title;
-
-        // Check if the title matches a specific condition (optional)
-        if (pageTitle === "Performance Bicycle - Gravel Starts Here") { // Replace with your specific page title
-            // Create a new style element
-            const style = document.createElement('style');
-            style.type = 'text/css';
-
-            // Add custom CSS for multiple elements within a specific div
-            style.innerHTML = `
-    
-    #above-header {
-    padding: 15px 0px 12px;
-    width: 1000px;
-    margin: auto;
-}
-    
-    header:not(.kiosk) {
-    position: relative;
-    z-index: 3;
-    margin: auto;
-    background-color: #fff;
-}
-    
-
-    #maincontent {
-    position: relative !important;
-    z-index: 1 !important;
-    min-height: 800px !important;
-    top: 153px !important;
-       /*top: 207px !important;*/
-
-}
-
-
-/*    transform: translate(-50%, 0%) !important;
-    left: 50% !important;
-*/
-    
-    
-    #above-header>div {
-    width: auto;
-    }
-    
-
-        ul.ui-autocomplete.search-provider-autocomplete {
-        z-index: 9999 !important;
-        position: fixed !important;
-}
-
-
-    #above-header>div>div:first-child {
-        width: 100%;
-}
-
-
-
-    #combined{
-            position: fixed;
-            transition: transform 0.3s ease-in-out;
-            z-index: 1000;
-            background-color: #f2f2f2 !important;  
-            width: 100vw;
-  }
-
-
-
-`;
-
-            // Append the style element to the head of the document
-            document.head.appendChild(style);
-        }
-    });
-</script>
-
-<script>
-function wrapElementsInCombinedDiv() {
-    // Wait for the page to fully load
-    window.addEventListener('load', () => {
-        // Target the elements by their IDs and the header element
-        const aboveHeader = document.getElementById('above-header');
-        const menuWrapper = document.getElementById('menu-wrapper');
-        const header = document.querySelector('header');
-
-        // Check if all required elements exist
-        if (aboveHeader && menuWrapper && header) {
-            // Create a new div with the id "combined"
-            const combinedDiv = document.createElement('div');
-            combinedDiv.id = 'combined';
-
-            // Insert the new div before the first target element
-            aboveHeader.parentNode.insertBefore(combinedDiv, aboveHeader);
-
-            // Append the target elements to the new div
-            combinedDiv.appendChild(aboveHeader);
-            combinedDiv.appendChild(header);
-            combinedDiv.appendChild(menuWrapper);
-
-          //  console.log('Elements successfully wrapped in a new div with id "combined".');
-        } else {
-         //   console.error('One or more target elements are missing.');
-        }
-    });
-}
-
-// Call the function
-wrapElementsInCombinedDiv();
-
-</script>
-</div>
 <div>
 <style>
 
@@ -671,7 +118,7 @@ wrapElementsInCombinedDiv();
                 background: rgba(0,0,0,0.6);
                 display: flex;
                 flex-direction: column;
-    
+    /*            gap:16px;*/
                 align-items: flex-start;
                 position: absolute;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -952,7 +399,7 @@ wrapElementsInCombinedDiv();
             <div class="_slide_info_block _center" style="max-width: 320px !important;   ">
                 <h2>Specialized TARMAC SL9</h2>
                 <p>Specialized's Fastest Road Bike Ever!</p>
-                <a data-url="/search?cID=28723&amp;s=sl9&amp;fk" data-promo-id="/search?cID=28723&amp;s=sl9&amp;fk" href="/search?cID=28723&amp;s=sl9&amp;fk" data-event="home-category-hosted-content-c3639" class="_shop_now_cta">SHOP NOW</a>
+                <a data-url="/search?cID=28723&amp;s=sl9&amp;fk" data-promo-id="/search?cID=28723&amp;s=sl9&amp;fk" href="https://www.performancebike.com/search?cID=28723&amp;s=sl9&amp;fk" data-event="home-category-hosted-content-c3639" class="_shop_now_cta">SHOP NOW</a>
             </div>
         </div>
         
@@ -960,7 +407,7 @@ wrapElementsInCombinedDiv();
             <div class="_slide_info_block _center" style="max-width: 350px !important;   ">
                 <h2>THE NEW SHIMANO ROAD SYSTEM IS HERE</h2>
                 <p>New pedals. New Cleats. New shoes. One completely new connection to the bike.</p>
-                <a data-url="/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" data-promo-id="/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" href="/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" data-event="home-category-hosted-content-c3639" class="_shop_now_cta">SHOP NOW</a>
+                <a data-url="/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" data-promo-id="/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" href="https://www.performancebike.com/shimano-bike-bicycle-pedals-cleats/c15198?fb=1468&amp;o=RecentlyAdded" data-event="home-category-hosted-content-c3639" class="_shop_now_cta">SHOP NOW</a>
             </div>
         </div>
 
@@ -974,7 +421,7 @@ wrapElementsInCombinedDiv();
 
 
 
-    <script>
+    <script type="text/javascript">
         let currentSlide = 0;
         let startX = 0; // Start position for touch
         let isDragging = false; // To track if user is dragging
@@ -1073,8 +520,6 @@ wrapElementsInCombinedDiv();
             showSlide(0);
         };
     </script>
-</div>
-<div>
 <style>
 
 ._logo-container {
@@ -1148,54 +593,54 @@ wrapElementsInCombinedDiv();
 <div class="_logo-container">
   <div class="_logo_images">
      
-      <a tabindex="0" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"  href="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Shimano.jpg" loading="lazy" alt="Shimano"></a>
+      <a tabindex="0" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" href="https://www.performancebike.com/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Shimano.jpg" alt="Shimano"></a>
       
-      <a tabindex="0" data-url="/specialized/b2231" data-promo-id="/specialized/b2231"  href="/specialized/b2231"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Specialized.jpg" loading="lazy" alt="Specialized"></a>
+      <a tabindex="0" data-url="/specialized/b2231" data-promo-id="/specialized/b2231" href="https://www.performancebike.com/specialized/b2231" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Specialized.jpg" alt="Specialized"></a>
       
-      <a tabindex="0" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509"  href="/sram-groupsets-brakes-chains-cranksets/b1509"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/SRAM.jpg" loading="lazy" alt="SRAM"></a>
+      <a tabindex="0" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509" href="https://www.performancebike.com/sram-groupsets-brakes-chains-cranksets/b1509" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/SRAM.jpg" alt="SRAM"></a>
       
-      <a tabindex="0" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368"  href="/pearl-izumi-cycling-clothing/b1368"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Pearl_Izumi.jpg" loading="lazy" alt="Pearl Izumi"></a>
+      <a tabindex="0" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368" href="https://www.performancebike.com/pearl-izumi-cycling-clothing/b1368" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Pearl_Izumi.jpg" alt="Pearl Izumi"></a>
       
-      <a tabindex="0" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168"  href="/giant-bicycles/b1168"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/giant.jpg" loading="lazy" alt="Giant"></a>
+      <a tabindex="0" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168" href="https://www.performancebike.com/giant-bicycles/b1168" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/giant.jpg" alt="Giant"></a>
       
-      <a tabindex="0" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046"  href="/continental-bike-tires/b1046"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Continental.jpg" loading="lazy" alt="Continental"></a>
+      <a tabindex="0" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046" href="https://www.performancebike.com/continental-bike-tires/b1046" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Continental.jpg" alt="Continental"></a>
       
-      <a tabindex="0" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280"  href="/louis-garneau/b1280"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Louis_Garneau.jpg" loading="lazy" alt="Louis Garneau"></a>
+      <a tabindex="0" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280" href="https://www.performancebike.com/louis-garneau/b1280" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Louis_Garneau.jpg" alt="Louis Garneau"></a>
       
-      <a tabindex="0" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430"  href="/ritchey/b1430"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/Ritchey.jpg" loading="lazy" alt="Ritchey"></a>
+      <a tabindex="0" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430" href="https://www.performancebike.com/ritchey/b1430" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/Ritchey.jpg" alt="Ritchey"></a>
       
-      <a tabindex="0" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155"  href="/garmin-bike-computers/b1155"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/garmin.jpg" loading="lazy" alt="Garmin"></a>
+      <a tabindex="0" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155" href="https://www.performancebike.com/garmin-bike-computers/b1155" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/garmin.jpg" alt="Garmin"></a>
       
-      <a tabindex="0" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364"  href="/park-tool-bike/b1364"><img  src="assets/share/sites/performancebike/home-promo/sliders/logos/park_tools.jpg" loading="lazy" alt="Park Tools"></a>
+      <a tabindex="0" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364" href="https://www.performancebike.com/park-tool-bike/b1364" data-event="home-category-hosted-content-c3639"><img loading="lazy" src="assets/park_tools.jpg" alt="Park Tools"></a>
       
       
    
    
-   <a tabindex="-1" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"  href="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Shimano.jpg" loading="lazy" alt="Shimano"></a>
+   <a tabindex="-1" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" href="https://www.performancebike.com/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-event="home-category-hosted-content-c3639"><img src="assets/Shimano.jpg" loading="lazy" alt="Shimano"></a>
      
      
-      <a tabindex="-1" data-url="/specialized/b2231" data-promo-id="/specialized/b2231"  href="/specialized/b2231"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Specialized.jpg" loading="lazy" alt="Specialized"></a>
-      <a tabindex="-1" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509"  href="/sram-groupsets-brakes-chains-cranksets/b1509"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/SRAM.jpg" loading="lazy" alt="SRAM"></a>
-      <a tabindex="-1" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368"  href="/pearl-izumi-cycling-clothing/b1368"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Pearl_Izumi.jpg" loading="lazy" alt="Pearl Izumi"></a>
-      <a tabindex="-1" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168"  href="/giant-bicycles/b1168"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/giant.jpg" loading="lazy" alt="Giant"></a>
-      <a tabindex="-1" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046"  href="/continental-bike-tires/b1046"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Continental.jpg" loading="lazy" alt="Continental"></a>
-      <a tabindex="-1" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280"  href="/louis-garneau/b1280"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Louis_Garneau.jpg" loading="lazy" alt="Louis Garneau"></a>
-      <a tabindex="-1" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430"  href="/ritchey/b1430"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Ritchey.jpg" loading="lazy" alt="Ritchey"></a>
-      <a tabindex="-1" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155"  href="/garmin-bike-computers/b1155"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/garmin.jpg" loading="lazy" alt="Garmin"></a>
-      <a tabindex="-1" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364"  href="/park-tool-bike/b1364"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/park_tools.jpg" loading="lazy" alt="Park Tools"></a>
+      <a tabindex="-1" data-url="/specialized/b2231" data-promo-id="/specialized/b2231" href="https://www.performancebike.com/specialized/b2231" data-event="home-category-hosted-content-c3639"><img src="assets/Specialized.jpg" loading="lazy" alt="Specialized"></a>
+      <a tabindex="-1" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509" href="https://www.performancebike.com/sram-groupsets-brakes-chains-cranksets/b1509" data-event="home-category-hosted-content-c3639"><img src="assets/SRAM.jpg" loading="lazy" alt="SRAM"></a>
+      <a tabindex="-1" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368" href="https://www.performancebike.com/pearl-izumi-cycling-clothing/b1368" data-event="home-category-hosted-content-c3639"><img src="assets/Pearl_Izumi.jpg" loading="lazy" alt="Pearl Izumi"></a>
+      <a tabindex="-1" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168" href="https://www.performancebike.com/giant-bicycles/b1168" data-event="home-category-hosted-content-c3639"><img src="assets/giant.jpg" loading="lazy" alt="Giant"></a>
+      <a tabindex="-1" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046" href="https://www.performancebike.com/continental-bike-tires/b1046" data-event="home-category-hosted-content-c3639"><img src="assets/Continental.jpg" loading="lazy" alt="Continental"></a>
+      <a tabindex="-1" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280" href="https://www.performancebike.com/louis-garneau/b1280" data-event="home-category-hosted-content-c3639"><img src="assets/Louis_Garneau.jpg" loading="lazy" alt="Louis Garneau"></a>
+      <a tabindex="-1" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430" href="https://www.performancebike.com/ritchey/b1430" data-event="home-category-hosted-content-c3639"><img src="assets/Ritchey.jpg" loading="lazy" alt="Ritchey"></a>
+      <a tabindex="-1" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155" href="https://www.performancebike.com/garmin-bike-computers/b1155" data-event="home-category-hosted-content-c3639"><img src="assets/garmin.jpg" loading="lazy" alt="Garmin"></a>
+      <a tabindex="-1" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364" href="https://www.performancebike.com/park-tool-bike/b1364" data-event="home-category-hosted-content-c3639"><img src="assets/park_tools.jpg" loading="lazy" alt="Park Tools"></a>
       
       
       
-      <a tabindex="-1" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"  href="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Shimano.jpg" loading="lazy" alt="Shimano"></a>
-      <a tabindex="-1" data-url="/specialized/b2231" data-promo-id="/specialized/b2231"  href="/specialized/b2231"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Specialized.jpg" loading="lazy" alt="Specialized"></a>
-      <a tabindex="-1" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509"  href="/sram-groupsets-brakes-chains-cranksets/b1509"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/SRAM.jpg" loading="lazy" alt="SRAM"></a>
-      <a tabindex="-1" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368"  href="/pearl-izumi-cycling-clothing/b1368"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Pearl_Izumi.jpg" loading="lazy" alt="Pearl Izumi"></a>
-      <a tabindex="-1" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168"  href="/giant-bicycles/b1168"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/giant.jpg" loading="lazy" alt="Giant"></a>
-      <a tabindex="-1" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046"  href="/continental-bike-tires/b1046"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Continental.jpg" loading="lazy" alt="Continental"></a>
-      <a tabindex="-1" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280"  href="/louis-garneau/b1280"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Louis_Garneau.jpg" loading="lazy" alt="Louis Garneau"></a>
-      <a tabindex="-1" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430"  href="/ritchey/b1430"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/Ritchey.jpg" loading="lazy" alt="Ritchey"></a>
-      <a tabindex="-1" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155"  href="/garmin-bike-computers/b1155"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/garmin.jpg" loading="lazy" alt="Garmin"></a>
-      <a tabindex="-1" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364"  href="/park-tool-bike/b1364"><img src="assets/share/sites/performancebike/home-promo/sliders/logos/park_tools.jpg" loading="lazy" alt="Park Tools"></a>
+      <a tabindex="-1" data-url="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-promo-id="/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" href="https://www.performancebike.com/shimano-wheels-groupsets-brakes-chains-cranksets/b1468" data-event="home-category-hosted-content-c3639"><img src="assets/Shimano.jpg" loading="lazy" alt="Shimano"></a>
+      <a tabindex="-1" data-url="/specialized/b2231" data-promo-id="/specialized/b2231" href="https://www.performancebike.com/specialized/b2231" data-event="home-category-hosted-content-c3639"><img src="assets/Specialized.jpg" loading="lazy" alt="Specialized"></a>
+      <a tabindex="-1" data-url="/sram-groupsets-brakes-chains-cranksets/b1509" data-promo-id="/sram-groupsets-brakes-chains-cranksets/b1509" href="https://www.performancebike.com/sram-groupsets-brakes-chains-cranksets/b1509" data-event="home-category-hosted-content-c3639"><img src="assets/SRAM.jpg" loading="lazy" alt="SRAM"></a>
+      <a tabindex="-1" data-url="/pearl-izumi-cycling-clothing/b1368" data-promo-id="/pearl-izumi-cycling-clothing/b1368" href="https://www.performancebike.com/pearl-izumi-cycling-clothing/b1368" data-event="home-category-hosted-content-c3639"><img src="assets/Pearl_Izumi.jpg" loading="lazy" alt="Pearl Izumi"></a>
+      <a tabindex="-1" data-url="/giant-bicycles/b1168" data-promo-id="/giant-bicycles/b1168" href="https://www.performancebike.com/giant-bicycles/b1168" data-event="home-category-hosted-content-c3639"><img src="assets/giant.jpg" loading="lazy" alt="Giant"></a>
+      <a tabindex="-1" data-url="/continental-bike-tires/b1046" data-promo-id="/continental-bike-tires/b1046" href="https://www.performancebike.com/continental-bike-tires/b1046" data-event="home-category-hosted-content-c3639"><img src="assets/Continental.jpg" loading="lazy" alt="Continental"></a>
+      <a tabindex="-1" data-url="/louis-garneau/b1280" data-promo-id="/louis-garneau/b1280" href="https://www.performancebike.com/louis-garneau/b1280" data-event="home-category-hosted-content-c3639"><img src="assets/Louis_Garneau.jpg" loading="lazy" alt="Louis Garneau"></a>
+      <a tabindex="-1" data-url="/ritchey/b1430" data-promo-id="/ritchey/b1430" href="https://www.performancebike.com/ritchey/b1430" data-event="home-category-hosted-content-c3639"><img src="assets/Ritchey.jpg" loading="lazy" alt="Ritchey"></a>
+      <a tabindex="-1" data-url="/garmin-bike-computers/b1155" data-promo-id="/garmin-bike-computers/b1155" href="https://www.performancebike.com/garmin-bike-computers/b1155" data-event="home-category-hosted-content-c3639"><img src="assets/garmin.jpg" loading="lazy" alt="Garmin"></a>
+      <a tabindex="-1" data-url="/park-tool-bike/b1364" data-promo-id="/park-tool-bike/b1364" href="https://www.performancebike.com/park-tool-bike/b1364" data-event="home-category-hosted-content-c3639"><img src="assets/park_tools.jpg" loading="lazy" alt="Park Tools"></a>
 
   
 
@@ -1204,18 +649,18 @@ wrapElementsInCombinedDiv();
 </div>
   
   <div style="display: flex; flex-wrap: wrap; margin: 0 auto 64px; align-items: center; justify-content: center; gap: 1rem;">
- <div class="lp-product-foot"><a data-url="/brands/cp1588" data-promo-id="/brands/cp1588"  href="/brands/cp1588">All Top Brands</a></div>
+ <div class="lp-product-foot"><a data-url="/brands/cp1588" data-promo-id="/brands/cp1588" href="https://www.performancebike.com/brands/cp1588" data-event="home-category-hosted-content-c3639">All Top Brands</a></div>
  
   
-  <div class="lp-product-foot"><a data-url="/search?dc=brg_dyn_mkmvj5gsr4" data-promo-id="/search?dc=brg_dyn_mkmvj5gsr4"  href="/search?dc=brg_dyn_mkmvj5gsr4">Top Trending</a></div>
+  <div class="lp-product-foot"><a data-url="/search?dc=brg_dyn_mkmvj5gsr4" data-promo-id="/search?dc=brg_dyn_mkmvj5gsr4" href="https://www.performancebike.com/search?dc=brg_dyn_mkmvj5gsr4" data-event="home-category-hosted-content-c3639">Top Trending</a></div>
  
  
-  <div class="lp-product-foot"><a data-url="/search?t=1" data-promo-id="/search?t=1"  href="/search?t=1">Top Selling</a></div>
+  <div class="lp-product-foot"><a data-url="/search?t=1" data-promo-id="/search?t=1" href="https://www.performancebike.com/search?t=1" data-event="home-category-hosted-content-c3639">Top Selling</a></div>
   
- <div class="lp-product-foot"><a data-url="/search?t=2" data-promo-id="/search?t=2"  href="/search?t=2">Just Arrived</a></div>
+ <div class="lp-product-foot"><a data-url="/search?t=2" data-promo-id="/search?t=2" href="https://www.performancebike.com/search?t=2" data-event="home-category-hosted-content-c3639">Just Arrived</a></div>
   </div>
   
-<script>
+<script type="text/javascript">
 const logoContainer = document.querySelector('._logo_images');
 
 // Clone the logos for an infinite scroll effect
@@ -1265,43 +710,2189 @@ window.addEventListener('load', startScroll);
 </div>
 
 <div class="_tabcontent" id="Trending_Products">
-   <div style="display:grid;place-items:center;min-height:220px;margin:8px 0;border:2px dashed #9aa4b2;border-radius:8px;background:#f4f6f9;color:#4a5363;font:500 14px/1.5 system-ui,sans-serif;text-align:center;padding:16px"><div><strong>Product widget</strong> &middot; PB-Homepage-Widget<br><code style="font-size:12px">brg_dyn_mkmvj5gsr4</code><br><span style="font-size:12px">Products are filled in live by performancebike.com</span></div></div>
-<a class="_view_all_arrow" href="/search?dc=brg_dyn_mkmvj5gsr4" data-event="home-category-hosted-content-c3639">View All Trending</a>
+   <style>
+    @media screen {
+        @font-face {
+            font-family: 'tungsten';
+            font-style: normal;
+            src: local('tungsten Regular'), local('tungsten-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/Tungsten-Medium.woff) format('woff');
+            font-display: swap;
+        }
+    }
+
+    @media screen {
+        @font-face {
+            font-family: 'UniversLTStd-Cn';
+            font-style: normal;
+            src: local('UniversLTStd-Cn Regular'), local('UniversLTStd-Cn-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/UniversLTStd-Cn.woff2) format('woff');
+            font-display: swap;
+        }
+    }
+
+    #blog h1.__title__ {
+        font-size: 4.5rem;
+    }
+
+    .__item_title__ {
+        font-family: 'tungsten', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.85rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+
+    .__titlebar__ {
+        display: none;
+        font-size: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .__filter_item_outer__ {
+        width: 100%;
+        display: flex;
+        margin-bottom: 16px;
+    }
+
+    .__filter_items__ {
+        margin-bottom: 64px;
+    }
+
+    .__item_title__ {
+        font-size: 2rem;
+        margin: 0 0 16px;
+        display: block;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .__titlebar__ {
+            display: block;
+            font-size: 1.5rem !important;
+            text-align: center !important;
+        }
+
+        h1.__titlebar__ {
+            display: none !important;
+        }
+
+        .__filter_items__ {
+            font-size: 1rem !important;
+        }
+
+        .__filter_items__ .__item_title__ {
+            margin-bottom: inherit;
+        }
+
+        .__filter_item_outer__ {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .__filter_items__ img {
+            width: 90% !important;
+            margin: 0 auto;
+        }
+
+        .__filter_items__ a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .__brand_logos__ img {
+            width: 60% !important;
+            margin: 8px auto;
+        }
+
+        .__filter_items__ h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .__filter_sections__ a {
+            padding: 0 !important;
+        }
+
+        .__carousel-control__ {
+            display: block !important;
+        }
+    }
+
+    .__filter_sections__ {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .__carousel__ {
+        position: relative;
+        max-width: 1000px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .__scroll-container__ {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        cursor: pointer;
+        height: auto;
+        overflow-y: hidden;
+        margin-bottom: 16px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .__scroll-item__ {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 210px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .__scroll-item__ img {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+    .__carousel-control__ {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+    }
+
+    .__carousel-control__:hover {
+        opacity: 1;
+    }
+
+    .__scroll-container__:hover ~ .__carousel-control__ {
+        opacity: 1;
+    }
+
+    .__carousel-control__.next {
+        right: 10px;
+        padding: 8px 12px 8px 13px;
+        opacity: 1;
+    }
+
+    .__carousel-control__.next:after {
+        content: '\276F';
+    }
+
+    .__carousel-control__.prev {
+        left: 10px;
+        padding: 8px 13px 8px 12px;
+        opacity: 1;
+    }
+
+    .__carousel-control__.prev:after {
+        content: '\276E';
+    }
+
+    .__hyphen__ span::before {
+        content: '\201C';
+    }
+
+    .__apos__ span::before {
+        content: '\0027 \0027';
+    }
+
+    @media (max-width: 486px) {
+        .__carousel-control__ {
+            display: block;
+        }
+
+        .__scroll-item__ {
+            width: 330px;
+        }
+
+        .__scroll-item__.__mobile-item__ {
+            width: 170px;
+        }
+
+        .__carousel-control__.next {
+            padding: 5px 11px 6px 12px !important;
+        }
+
+        .__carousel-control__.prev {
+            padding: 5px 12px 6px 11px !important;
+        }
+    }
+</style>
+
+<style>
+    .__recommended-accessory-marketing-intro__ {
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 32px;
+        justify-content: center;
+    }
+    .__recommended-accessory-marketing-button__.view-all {
+        font-size: 1rem;
+        color: #000;
+        text-transform: uppercase;
+        background: #fff;
+        border: 1px solid #464647;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        border: 1px solid #464647;
+        box-shadow: 0 3px 3px #00000029;
+        border-radius: 3px;
+        padding: 9px 16px 6px;
+        text-decoration: none;
+    }
+
+    .__recommended-accessories-marketing__ {
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .__recommended-accessory-marketing__ {
+        height: auto;
+        max-width: 188px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 12px 24px 0;
+        max-height: 322px;
+        justify-content: space-between;
+        background-color: #fff;
+    }
+
+    .__recommended-accessory-marketing__:hover {
+        background: transparent linear-gradient(180deg, #46464700 0%, #4746461c 100%) 0% 0% no-repeat padding-box;
+        mix-blend-mode: multiply;
+    }
+
+    .__recommended-accessory-marketing-copy__ {
+        mix-blend-mode: multiply;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width:598px) {
+        .__recommended-accessory-marketing__ {
+            max-width: 174px !important;
+            align-items: center;
+            text-align: center;
+        }
+
+        a.__recommended-accessory-marketing-button__ {
+            font-size: 14px !important;
+            padding: 10px 12px 6px !important;
+            text-decoration: none !important;
+        }
+
+        .__recommended-accessory-marketing-copy__ a {
+            text-align: center!important;
+            font-size: 14px;
+            line-height: 1rem;
+            padding: 0 0 4px !important;
+        }
+    }
+
+    .__recommended-accessory-marketing__ img {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .__recommended-accessory-marketing-copy__ a {
+        background-color: #fff;
+        padding: 0;
+        width: 100%;
+        min-width: auto;
+        text-align: left;
+        text-transform: none !important;
+    }
+
+    .__recommended-accessory-marketing-title__ {
+        margin: 0px !important;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+
+    .__recommended-accessory-marketing-price__ {
+        font-size: 18px;
+        color: #d04500;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    a.__recommended-accessory-marketing-button__ {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #fff;
+        background: #464647;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        border: 1px solid #464647;
+        box-shadow: 0 3px 3px #00000029;
+        border-radius: 3px;
+        padding: 9px 12px 6px;
+        width: 100%;
+        max-width: 130px !important;
+        min-width: 90px !important;
+        display: flex;
+        justify-content: center;
+        text-decoration: none !important;
+        text-align: center;
+    }
+
+    a.__recommended-accessory-marketing-button__:hover {
+        color: #fff !important;
+        background: #333 !important;
+        cursor: pointer !important;
+    }
+</style>
+
+<div id="__lp-container__" style="margin-top: 8px !important;">
+    <div class="__carousel__" data-current-index="0">
+        <button aria-label="previous" class="__carousel-control__ prev" id="__prevButton__" style="display: none;"></button>
+        <div class="__scroll-container__" id="__scrollContainer__">
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1626554">
+                    <a href="https://www.performancebike.com/specialized-pathfinder-tlr-fast-gravel-tire-00025-4491-p/p1626554" tabindex="-1" aria-label="Specialized Pathfinder TLR Fast Gravel Tire"><img src="assets/00025-4492.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-pathfinder-tlr-fast-gravel-tire-00025-4491-p/p1626554" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Pathfinder TLR Fast Gravel Tire</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-pathfinder-tlr-fast-gravel-tire-00025-4491-p/p1626554" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1848826">
+                    <a href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" tabindex="-1" aria-label="Specialized Turbo Vado SL 2 4.0 EQ E-Bike (Gloss Oasis/Dune White Frost)"><img src="assets/93924-5003.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Turbo Vado SL 2 4.0 EQ E-Bike</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1810059">
+                    <a href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" tabindex="-1" aria-label="Salsa Cutthroat C Apex S1000 AXS Transmission (Spearmint Green)"><img src="assets/bk01621.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Salsa Cutthroat C Apex S1000 AXS Transmission</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1820856">
+                    <a href="https://www.performancebike.com/specialized-power-evo-pro-w-mirror-saddle-black-27126-6700-p/p1820856" tabindex="-1" aria-label="Specialized Power Evo Pro w/ Mirror Saddle (Black)"><img src="assets/27126-6703.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-power-evo-pro-w-mirror-saddle-black-27126-6700-p/p1820856" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Power Evo Pro w/ Mirror Saddle</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-power-evo-pro-w-mirror-saddle-black-27126-6700-p/p1820856" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1574805">
+                    <a href="https://www.performancebike.com/silca-hot-chain-wax-pro-bundle-silca-wax-kit-bdl/p1574805" tabindex="-1" aria-label="Silca Hot Chain Wax Pro Bundle"><img src="assets/silca-wax-kit-bdl.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/silca-hot-chain-wax-pro-bundle-silca-wax-kit-bdl/p1574805" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca Hot Chain Wax Pro Bundle</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/silca-hot-chain-wax-pro-bundle-silca-wax-kit-bdl/p1574805" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1361942">
+                    <a href="https://www.performancebike.com/specialized-2022-turbo-como-4.0-igh-ebike-cast-black-silver-reflective-s-90422-4002/p1361942" tabindex="-1" aria-label="Specialized 2022 Turbo Como 4.0 IGH E-Bike (Cast Black/Silver Reflective) (S)"><img src="assets/90422-4002.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-2022-turbo-como-4.0-igh-ebike-cast-black-silver-reflective-s-90422-4002/p1361942" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized 2022 Turbo Como 4.0 IGH E-Bike</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-2022-turbo-como-4.0-igh-ebike-cast-black-silver-reflective-s-90422-4002/p1361942" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1647699">
+                    <a href="https://www.performancebike.com/continental-archetype-tubeless-road-tire-black-700c-30mm-01021020000/p1647699" tabindex="-1" aria-label="Continental Archetype Tubeless Road Tire (Black) (700c) (30mm)"><img src="assets/01021020000.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/continental-archetype-tubeless-road-tire-black-700c-30mm-01021020000/p1647699" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Continental Archetype Tubeless Road Tire</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/continental-archetype-tubeless-road-tire-black-700c-30mm-01021020000/p1647699" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1225394">
+                    <a href="https://www.performancebike.com/shimano-ultegra-xt-cnhg70111-chain-silver-11-speed-126-links-icnhg70111126q/p1225394" tabindex="-1" aria-label="Shimano Ultegra/XT CN-HG701-11 Chain (Silver) (11 Speed) (126 Links)"><img src="assets/icnhg70111126q.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/shimano-ultegra-xt-cnhg70111-chain-silver-11-speed-126-links-icnhg70111126q/p1225394" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Shimano Ultegra/XT CN-HG701-11 Chain</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/shimano-ultegra-xt-cnhg70111-chain-silver-11-speed-126-links-icnhg70111126q/p1225394" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1583272">
+                    <a href="https://www.performancebike.com/specialized-2023-turbo-tero-x-4.0-ebike-gloss-cast-lilac-seafoam-xl-91623-5205u/p1583272" tabindex="-1" aria-label="Specialized 2023 Turbo Tero X 4.0 E-Bike (Gloss Cast Lilac/Seafoam) (XL)"><img src="assets/91623-5204u.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-2023-turbo-tero-x-4.0-ebike-gloss-cast-lilac-seafoam-xl-91623-5205u/p1583272" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized 2023 Turbo Tero X 4.0 E-Bike</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-2023-turbo-tero-x-4.0-ebike-gloss-cast-lilac-seafoam-xl-91623-5205u/p1583272" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1876588">
+                    <a href="https://www.performancebike.com/specialized-sworks-turbo-levo-sl-2-frameset-team-yellow-impasto-moss-green-76825-000xu-p/p1876588" tabindex="-1" aria-label="Specialized S-Works Turbo Levo SL 2 Frameset (Team Yellow/Impasto/Moss Green)"><img src="assets/76825-0003u.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-sworks-turbo-levo-sl-2-frameset-team-yellow-impasto-moss-green-76825-000xu-p/p1876588" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized S-Works Turbo Levo SL 2 Frameset</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-sworks-turbo-levo-sl-2-frameset-team-yellow-impasto-moss-green-76825-000xu-p/p1876588" tabindex="-1">View Item</a>
+            </div>  
+            
+        </div>
+        <button aria-label="next" aria-hidden="true" tabindex="-1" class="__carousel-control__ next" id="__nextButton__" style="display: block;"></button>
+    </div>
 </div>
 
-</div
-</div>
-<div>
-<div style=" max-width: 1000px !important; width: 100% !important; margin: 0 auto 64px !important;">
-<div class="_tab">
-  <h2 class="_tablinks ">Most Popular Bikes</h2>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    function removeOffSpanIfNoSTag() {
+        let priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
+        priceElements.forEach(function(priceElement) {
+            let sTag = priceElement.querySelector('s');
+            if (!sTag) {
+                let spanOff = priceElement.querySelector('span');
+                if (spanOff && spanOff.textContent.includes("OFF")) {
+                    spanOff.remove();
+                }
+            }
+        });
+    }
+    // Call the function
+    removeOffSpanIfNoSTag();
+});
+</script>
 
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all elements with the class '__recommended-accessory-marketing-price__'
+    const priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
+
+    priceElements.forEach(function(priceElement) {
+        const hasStrikethrough = priceElement.querySelector('s');
+        
+        if (!hasStrikethrough) {
+            const marketingDiv = priceElement.closest('.__recommended-accessory-marketing__');
+            const button = marketingDiv.querySelector('.__recommended-accessory-marketing-button__');
+            const productLink = marketingDiv.querySelector('a[href]');
+
+            if (button && productLink) {
+                button.textContent = "View Item";
+                button.href = productLink.href; 
+                button.removeAttribute('onclick');
+                button.style.backgroundColor = '#464647';
+                button.style.color = '#fff';
+                button.style.border = '1px solid #464647';
+            }
+        }
+    });
+});
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll(".__recommended-accessory-marketing-title__");
+    titles.forEach(title => {
+        if (title.textContent.length > 100) {
+            title.textContent = title.textContent.slice(0, 100);
+        }
+    });
+});
+</script>
+
+<script type="text/javascript">
+function updateImageSrcSmall() {
+    const smallImages = document.querySelectorAll('img');
+
+    smallImages.forEach((img) => {
+        const src = img.getAttribute('src');
+
+        if (src && src.includes('cdn-cgi/image/f=auto,width=200/')) {
+            const updatedSrc = src.replace(
+                'cdn-cgi/image/f=auto,width=200/',
+                'cdn-cgi/image/f=auto,width=436/'
+            );
+            img.setAttribute('src', updatedSrc);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', updateImageSrcSmall);
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    function cleanLinkText() {
+        const links = document.querySelectorAll('.__recommended-accessory-marketing-title__');
+        const keywords = ["Road Bike", "Gravel Bike", "Mountain Bike"];
+        
+        links.forEach(link => {
+            let text = link.textContent;
+            keywords.forEach(keyword => {
+                text = text.replace(keyword, '').trim();
+            });
+            for (let i = 0; i < 3; i++) {
+                text = text.replace(/\s*\(.*?\)\s*/, '').trim();
+            }
+            link.textContent = text;
+        });
+    }
+    cleanLinkText();
+});
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    const MOBILE_BREAKPOINT = 598;
+
+    function updateControls(carousel, currentIndex) {
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const totalItems = scrollContainer.querySelectorAll('.__scroll-item__').length;
+
+        prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
+        nextButton.style.display = currentIndex === totalItems - 1 ? 'none' : 'block';
+    }
+
+    function scrollNext(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (scrollItem && currentIndex < scrollContainer.children.length - 1) {
+            scrollContainer.scrollLeft += scrollItem.clientWidth;
+            currentIndex++;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function scrollPrev(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (scrollItem && currentIndex > 0) {
+            scrollContainer.scrollLeft -= scrollItem.clientWidth;
+            currentIndex--;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function onScroll(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        if (!scrollItem) return;
+
+        const scrollLeft = scrollContainer.scrollLeft;
+        const itemWidth = scrollItem.clientWidth;
+        const currentIndex = Math.round(scrollLeft / itemWidth);
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function initializeCarousel(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+
+        prevButton.addEventListener('click', function () {
+            scrollPrev(carousel);
+        });
+
+        nextButton.addEventListener('click', function () {
+            scrollNext(carousel);
+        });
+
+        scrollContainer.addEventListener('scroll', function () {
+            onScroll(carousel);
+        });
+
+        carousel.setAttribute('data-current-index', 0);
+        updateControls(carousel, 0);
+    }
+
+    const carousels = document.querySelectorAll('.__carousel__');
+    carousels.forEach(initializeCarousel);
+
+    window.addEventListener('resize', function () {
+        carousels.forEach(function (carousel) {
+            const currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+            updateControls(carousel, currentIndex);
+        });
+    });
+});
+</script>
+<a class="_view_all_arrow" href="https://www.performancebike.com/search?dc=brg_dyn_mkmvj5gsr4" data-event="home-category-hosted-content-c3639">View All Trending</a>
 </div>
 
-<div id="Most_Popular_Bikes" class="_tabcontent">
- <div style="display:grid;place-items:center;min-height:220px;margin:8px 0;border:2px dashed #9aa4b2;border-radius:8px;background:#f4f6f9;color:#4a5363;font:500 14px/1.5 system-ui,sans-serif;text-align:center;padding:16px"><div><strong>Product widget</strong> &middot; PB-Homepage-Widget<br><code style="font-size:12px">brg_dyn_k3a3bikzzq</code><br><span style="font-size:12px">Products are filled in live by performancebike.com</span></div></div>
- <a class="_view_all_arrow" href="/search?dc=brg_dyn_k3a3bikzzq">View All Popular Bikes</a>
-</div>
-
-</div>
-</div>
-<div>
-<div style=" max-width: 1000px !important; width: 100% !important; margin: 0 auto 64px !important;">
-<div class="_tab">
-  <h2 class="_tablinks ">Top Deals</h2>
-</div>
-
-<div id="Popular_On_Sale_Products" class="_tabcontent">
-  <div style="display:grid;place-items:center;min-height:220px;margin:8px 0;border:2px dashed #9aa4b2;border-radius:8px;background:#f4f6f9;color:#4a5363;font:500 14px/1.5 system-ui,sans-serif;text-align:center;padding:16px"><div><strong>Product widget</strong> &middot; PB-PricingAddToCartSale<br><code style="font-size:12px">brg_dyn_kzhzdez1cm</code><br><span style="font-size:12px">Products are filled in live by performancebike.com</span></div></div>
-   <a class="_view_all_arrow" href="/search?dc=brg_dyn_inp94dz36o#scroll-to-results">View All Top Deals</a>
-</div>
 </div>
 </div>
 <div>
 <div>
             <div style=" max-width: 1000px !important; width: 100% !important; margin: 0 auto 64px !important;">
 <div class="_tab">
-  <h2 class="_tablinks">Hot & New Products</h2>
+  <h2 class="_tablinks ">Most Popular Bikes</h2>
+
+</div>
+
+<div id="Most_Popular_Bikes" class="_tabcontent">
+ <style>
+    @media screen {
+        @font-face {
+            font-family: 'tungsten';
+            font-style: normal;
+            src: local('tungsten Regular'), local('tungsten-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/Tungsten-Medium.woff) format('woff');
+            font-display: swap;
+        }
+    }
+
+    @media screen {
+        @font-face {
+            font-family: 'UniversLTStd-Cn';
+            font-style: normal;
+            src: local('UniversLTStd-Cn Regular'), local('UniversLTStd-Cn-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/UniversLTStd-Cn.woff2) format('woff');
+            font-display: swap;
+        }
+    }
+
+    #blog h1.__title__ {
+        font-size: 4.5rem;
+    }
+
+    .__item_title__ {
+        font-family: 'tungsten', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.85rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+
+    .__titlebar__ {
+        display: none;
+        font-size: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .__filter_item_outer__ {
+        width: 100%;
+        display: flex;
+        margin-bottom: 16px;
+    }
+
+    .__filter_items__ {
+        margin-bottom: 64px;
+    }
+
+    .__item_title__ {
+        font-size: 2rem;
+        margin: 0 0 16px;
+        display: block;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .__titlebar__ {
+            display: block;
+            font-size: 1.5rem !important;
+            text-align: center !important;
+        }
+
+        h1.__titlebar__ {
+            display: none !important;
+        }
+
+        .__filter_items__ {
+            font-size: 1rem !important;
+        }
+
+        .__filter_items__ .__item_title__ {
+            margin-bottom: inherit;
+        }
+
+        .__filter_item_outer__ {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .__filter_items__ img {
+            width: 90% !important;
+            margin: 0 auto;
+        }
+
+        .__filter_items__ a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .__brand_logos__ img {
+            width: 60% !important;
+            margin: 8px auto;
+        }
+
+        .__filter_items__ h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .__filter_sections__ a {
+            padding: 0 !important;
+        }
+
+        .__carousel-control__ {
+            display: block !important;
+        }
+    }
+
+    .__filter_sections__ {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .__carousel__ {
+        position: relative;
+        max-width: 1000px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .__scroll-container__ {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        cursor: pointer;
+        height: auto;
+        overflow-y: hidden;
+        margin-bottom: 16px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    .__scroll-container__::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .__scroll-item__ {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 210px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .__scroll-item__ img {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+    .__carousel-control__ {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+    }
+
+    .__carousel-control__:hover {
+        opacity: 1;
+    }
+
+    .__scroll-container__:hover ~ .__carousel-control__ {
+        opacity: 1;
+    }
+
+    .__carousel-control__.next {
+        right: 10px;
+        padding: 8px 12px 8px 13px;
+        opacity: 1;
+    }
+
+    .__carousel-control__.next:after {
+        content: '\276F';
+    }
+
+    .__carousel-control__.prev {
+        left: 10px;
+        padding: 8px 13px 8px 12px;
+        opacity: 1;
+    }
+
+    .__carousel-control__.prev:after {
+        content: '\276E';
+    }
+
+    .__hyphen__ span::before {
+        content: '\201C';
+    }
+
+    .__apos__ span::before {
+        content: '\0027 \0027';
+    }
+
+    @media (max-width: 486px) {
+        .__carousel-control__ {
+            display: block;
+        }
+
+        .__scroll-item__ {
+            width: 330px;
+        }
+
+        .__scroll-item__.__mobile-item__ {
+            width: 170px;
+        }
+
+        .__carousel-control__.next {
+            padding: 5px 11px 6px 12px !important;
+        }
+
+        .__carousel-control__.prev {
+            padding: 5px 12px 6px 11px !important;
+        }
+    }
+</style>
+
+<style>
+    .__recommended-accessory-marketing-intro__ {
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 32px;
+        justify-content: center;
+    }
+    .__recommended-accessory-marketing-button__.view-all {
+        font-size: 1rem;
+        color: #000;
+        text-transform: uppercase;
+        background: #fff;
+        border: 1px solid #464647;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        border: 1px solid #464647;
+        box-shadow: 0 3px 3px #00000029;
+        border-radius: 3px;
+        padding: 9px 16px 6px;
+        text-decoration: none;
+    }
+
+    .__recommended-accessories-marketing__ {
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .__recommended-accessory-marketing__ {
+        height: auto;
+        max-width: 188px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 12px 24px 0;
+        max-height: 322px;
+        justify-content: space-between;
+        background-color: #fff;
+    }
+
+    .__recommended-accessory-marketing__:hover {
+        background: transparent linear-gradient(180deg, #46464700 0%, #4746461c 100%) 0% 0% no-repeat padding-box;
+        mix-blend-mode: multiply;
+    }
+
+    .__recommended-accessory-marketing-copy__ {
+        mix-blend-mode: multiply;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width:598px) {
+        .__recommended-accessory-marketing__ {
+            max-width: 174px !important;
+            align-items: center;
+            text-align: center;
+        }
+
+        a.__recommended-accessory-marketing-button__ {
+            font-size: 14px !important;
+            padding: 10px 12px 6px !important;
+            text-decoration: none !important;
+        }
+
+        .__recommended-accessory-marketing-copy__ a {
+            text-align: center!important;
+            font-size: 14px;
+            line-height: 1rem;
+            padding: 0 0 4px !important;
+        }
+    }
+
+    .__recommended-accessory-marketing__ img {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .__recommended-accessory-marketing-copy__ a {
+        background-color: #fff;
+        padding: 0;
+        width: 100%;
+        min-width: auto;
+        text-align: left;
+        text-transform: none !important;
+    }
+
+    .__recommended-accessory-marketing-title__ {
+        margin: 0px !important;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+
+    .__recommended-accessory-marketing-price__ {
+        font-size: 18px;
+        color: #d04500;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    a.__recommended-accessory-marketing-button__ {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #fff;
+        background: #464647;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        border: 1px solid #464647;
+        box-shadow: 0 3px 3px #00000029;
+        border-radius: 3px;
+        padding: 9px 12px 6px;
+        width: 100%;
+        max-width: 130px !important;
+        min-width: 90px !important;
+        display: flex;
+        justify-content: center;
+        text-decoration: none !important;
+        text-align: center;
+    }
+
+    a.__recommended-accessory-marketing-button__:hover {
+        color: #fff !important;
+        background: #333 !important;
+        cursor: pointer !important;
+    }
+</style>
+
+<div id="__lp-container__" style="margin-top: 8px !important;">
+    <div class="__carousel__" data-current-index="0">
+        <button aria-label="previous" class="__carousel-control__ prev" id="__prevButton__" style="display: none;"></button>
+        <div class="__scroll-container__" id="__scrollContainer__">
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1810059">
+                    <a href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" tabindex="-1" aria-label="Salsa Cutthroat C Apex S1000 AXS Transmission (Spearmint Green)"><img src="assets/bk01621.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Salsa Cutthroat C Apex S1000 AXS Transmission</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/salsa-cutthroat-c-apex-s1000-axs-transmission-spearmint-green-bk01621-p/p1810059" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1663902">
+                    <a href="https://www.performancebike.com/specialized-diverge-e5-gravel-bike-gloss-spice-gunmetal-95426-71-p/p1663902" tabindex="-1" aria-label="Specialized Diverge E5 Gravel Bike (Gloss Spice/Gunmetal)"><img src="assets/95426-7144.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-diverge-e5-gravel-bike-gloss-spice-gunmetal-95426-71-p/p1663902" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Diverge E5</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-diverge-e5-gravel-bike-gloss-spice-gunmetal-95426-71-p/p1663902" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1848826">
+                    <a href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" tabindex="-1" aria-label="Specialized Turbo Vado SL 2 4.0 EQ E-Bike (Gloss Oasis/Dune White Frost)"><img src="assets/93924-5003.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Turbo Vado SL 2 4.0 EQ E-Bike</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-turbo-vado-sl-2-4.0-eq-ebike-gloss-oasis-dune-white-frost-93924-5002-p/p1848826" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1867242">
+                    <a href="https://www.performancebike.com/specialized-turbo-levo-4-alloy-ebike-gloss-cool-grey-smoke-95227-7001-p/p1867242" tabindex="-1" aria-label="Specialized Turbo Levo 4 Alloy E-Bike (Gloss Cool Grey/Smoke)"><img src="assets/95227-7001.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-turbo-levo-4-alloy-ebike-gloss-cool-grey-smoke-95227-7001-p/p1867242" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Turbo Levo 4 Alloy E-Bike</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-turbo-levo-4-alloy-ebike-gloss-cool-grey-smoke-95227-7001-p/p1867242" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1810060">
+                    <a href="https://www.performancebike.com/salsa-flyway-c-grx610-gravel-bike-dark-umber-bk01665-p/p1810060" tabindex="-1" aria-label="Salsa Flyway C GRX-610 Gravel Bike (Dark Umber)"><img src="assets/bk01667.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/salsa-flyway-c-grx610-gravel-bike-dark-umber-bk01665-p/p1810060" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Salsa Flyway C GRX-610</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/salsa-flyway-c-grx610-gravel-bike-dark-umber-bk01665-p/p1810060" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1829676">
+                    <a href="https://www.performancebike.com/specialized-crux-5-expert-gravel-bike-gold-dolomite-obsidian-metallic-91427-3149-p/p1829676" tabindex="-1" aria-label="Specialized Crux 5 Expert Gravel Bike (Gold/Dolomite/Obsidian Metallic)"><img src="assets/91427-3149.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-crux-5-expert-gravel-bike-gold-dolomite-obsidian-metallic-91427-3149-p/p1829676" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Crux 5 Expert</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-crux-5-expert-gravel-bike-gold-dolomite-obsidian-metallic-91427-3149-p/p1829676" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1823675">
+                    <a href="https://www.performancebike.com/specialized-epic-9-expert-gloss-carbon-white-90327-30-p/p1823675" tabindex="-1" aria-label="Specialized Epic 9 Expert (Gloss Carbon/White)"><img src="assets/90327-3002.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-epic-9-expert-gloss-carbon-white-90327-30-p/p1823675" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Epic 9 Expert</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-epic-9-expert-gloss-carbon-white-90327-30-p/p1823675" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1663667">
+                    <a href="https://www.performancebike.com/specialized-diverge-4-sport-carbon-emerald-metallic-silver-dust-95426-60-p/p1663667" tabindex="-1" aria-label="Specialized Diverge 4 Sport Carbon (Emerald Metallic/Silver Dust)"><img src="assets/95426-6049.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-diverge-4-sport-carbon-emerald-metallic-silver-dust-95426-60-p/p1663667" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Diverge 4 Sport Carbon</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-diverge-4-sport-carbon-emerald-metallic-silver-dust-95426-60-p/p1663667" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1663876">
+                    <a href="https://www.performancebike.com/specialized-diverge-4-comp-alloy-satin-shadow-silver-fjord-metallic-95426-52-p/p1663876" tabindex="-1" aria-label="Specialized Diverge 4 Comp Alloy (Satin Shadow Silver/Fjord Metallic)"><img src="assets/95426-5249.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/specialized-diverge-4-comp-alloy-satin-shadow-silver-fjord-metallic-95426-52-p/p1663876" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Specialized Diverge 4 Comp Alloy</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/specialized-diverge-4-comp-alloy-satin-shadow-silver-fjord-metallic-95426-52-p/p1663876" tabindex="-1">View Item</a>
+            </div>  
+            
+            <div class="__recommended-accessory-marketing__ __scroll-item__"> 
+                <div class="__recommended-accessory-marketing-copy__" data-id="1868540">
+                    <a href="https://www.performancebike.com/salsa-fargo-32-steel-frameset-pearl-orchid-fm1906-p/p1868540" tabindex="-1" aria-label="Salsa Fargo 32 Steel Frameset (Pearl Orchid)"><img src="assets/fm1906.jpg" role="presentation" alt=""></a>
+                    <a href="https://www.performancebike.com/salsa-fargo-32-steel-frameset-pearl-orchid-fm1906-p/p1868540" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Salsa Fargo 32 Steel Frameset</a>                   
+                </div>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/salsa-fargo-32-steel-frameset-pearl-orchid-fm1906-p/p1868540" tabindex="-1">View Item</a>
+            </div>  
+            
+        </div>
+        <button aria-label="next" aria-hidden="true" tabindex="-1" class="__carousel-control__ next" id="__nextButton__" style="display: block;"></button>
+    </div>
+</div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    function removeOffSpanIfNoSTag() {
+        let priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
+        priceElements.forEach(function(priceElement) {
+            let sTag = priceElement.querySelector('s');
+            if (!sTag) {
+                let spanOff = priceElement.querySelector('span');
+                if (spanOff && spanOff.textContent.includes("OFF")) {
+                    spanOff.remove();
+                }
+            }
+        });
+    }
+    // Call the function
+    removeOffSpanIfNoSTag();
+});
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all elements with the class '__recommended-accessory-marketing-price__'
+    const priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
+
+    priceElements.forEach(function(priceElement) {
+        const hasStrikethrough = priceElement.querySelector('s');
+        
+        if (!hasStrikethrough) {
+            const marketingDiv = priceElement.closest('.__recommended-accessory-marketing__');
+            const button = marketingDiv.querySelector('.__recommended-accessory-marketing-button__');
+            const productLink = marketingDiv.querySelector('a[href]');
+
+            if (button && productLink) {
+                button.textContent = "View Item";
+                button.href = productLink.href; 
+                button.removeAttribute('onclick');
+                button.style.backgroundColor = '#464647';
+                button.style.color = '#fff';
+                button.style.border = '1px solid #464647';
+            }
+        }
+    });
+});
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll(".__recommended-accessory-marketing-title__");
+    titles.forEach(title => {
+        if (title.textContent.length > 100) {
+            title.textContent = title.textContent.slice(0, 100);
+        }
+    });
+});
+</script>
+
+<script type="text/javascript">
+function updateImageSrcSmall() {
+    const smallImages = document.querySelectorAll('img');
+
+    smallImages.forEach((img) => {
+        const src = img.getAttribute('src');
+
+        if (src && src.includes('cdn-cgi/image/f=auto,width=200/')) {
+            const updatedSrc = src.replace(
+                'cdn-cgi/image/f=auto,width=200/',
+                'cdn-cgi/image/f=auto,width=436/'
+            );
+            img.setAttribute('src', updatedSrc);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', updateImageSrcSmall);
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    function cleanLinkText() {
+        const links = document.querySelectorAll('.__recommended-accessory-marketing-title__');
+        const keywords = ["Road Bike", "Gravel Bike", "Mountain Bike"];
+        
+        links.forEach(link => {
+            let text = link.textContent;
+            keywords.forEach(keyword => {
+                text = text.replace(keyword, '').trim();
+            });
+            for (let i = 0; i < 3; i++) {
+                text = text.replace(/\s*\(.*?\)\s*/, '').trim();
+            }
+            link.textContent = text;
+        });
+    }
+    cleanLinkText();
+});
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    const MOBILE_BREAKPOINT = 598;
+
+    function updateControls(carousel, currentIndex) {
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const totalItems = scrollContainer.querySelectorAll('.__scroll-item__').length;
+
+        prevButton.style.display = currentIndex === 0 ? 'none' : 'block';
+        nextButton.style.display = currentIndex === totalItems - 1 ? 'none' : 'block';
+    }
+
+    function scrollNext(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (scrollItem && currentIndex < scrollContainer.children.length - 1) {
+            scrollContainer.scrollLeft += scrollItem.clientWidth;
+            currentIndex++;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function scrollPrev(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (scrollItem && currentIndex > 0) {
+            scrollContainer.scrollLeft -= scrollItem.clientWidth;
+            currentIndex--;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function onScroll(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const scrollItem = scrollContainer.querySelector('.__scroll-item__');
+        if (!scrollItem) return;
+
+        const scrollLeft = scrollContainer.scrollLeft;
+        const itemWidth = scrollItem.clientWidth;
+        const currentIndex = Math.round(scrollLeft / itemWidth);
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function initializeCarousel(carousel) {
+        const scrollContainer = carousel.querySelector('.__scroll-container__');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+
+        prevButton.addEventListener('click', function () {
+            scrollPrev(carousel);
+        });
+
+        nextButton.addEventListener('click', function () {
+            scrollNext(carousel);
+        });
+
+        scrollContainer.addEventListener('scroll', function () {
+            onScroll(carousel);
+        });
+
+        carousel.setAttribute('data-current-index', 0);
+        updateControls(carousel, 0);
+    }
+
+    const carousels = document.querySelectorAll('.__carousel__');
+    carousels.forEach(initializeCarousel);
+
+    window.addEventListener('resize', function () {
+        carousels.forEach(function (carousel) {
+            const currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+            updateControls(carousel, currentIndex);
+        });
+    });
+});
+</script>
+ <a class="_view_all_arrow" href="https://www.performancebike.com/search?dc=brg_dyn_k3a3bikzzq" data-event="home-category-hosted-content-c3639">View All Popular Bikes</a>
+</div>
+
+</div>
+        </div>
+<div>
+            <div style=" max-width: 1000px !important; width: 100% !important; margin: 0 auto 64px !important;">
+<div class="_tab">
+  <h2 class="_tablinks ">Top Deals</h2>
+</div>
+
+<div id="Popular_On_Sale_Products" class="_tabcontent">
+  <style>
+    @media screen {
+        @font-face {
+            font-family: 'tungsten';
+            font-style: normal;
+            src: local('tungsten Regular'), local('tungsten-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/Tungsten-Medium.woff) format('woff');
+            font-display: swap;
+        }
+    }
+
+    @media screen {
+        @font-face {
+            font-family: 'UniversLTStd-Cn';
+            font-style: normal;
+            src: local('UniversLTStd-Cn Regular'), local('UniversLTStd-Cn-Regular'), url(https://www.performancebike.com/content/skins/performancebike/fonts/UniversLTStd-Cn.woff2) format('woff');
+            font-display: swap;
+        }
+    }
+
+    #blog h1.title {
+        font-size: 4.5rem;
+    }
+
+
+    ._item_title {
+        font-family: 'tungsten', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.85rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+
+
+
+
+
+    .titlebar {
+        display: none;
+        font-size: 1.5rem !important;
+        text-align: center !important;
+
+
+    }
+
+
+
+
+    ._filter_item_outer {
+        width: 100%;
+        display: flex;
+        margin-bottom: 16px;
+    }
+
+    ._filter_items {
+        margin-bottom: 64px;
+    }
+
+
+    ._item_title {
+        font-size: 2rem;
+        margin: 0 0 16px;
+        display: block;
+    }
+    
+        
+   ._recommended-accessory-marketing:hover {
+    background: transparent linear-gradient(180deg, #46464700 0%, #4746461c 100%) 0% 0% no-repeat padding-box;
+    mix-blend-mode: multiply;
+}
+    
+    ._recommended-accessory-marketing img {
+    mix-blend-mode: multiply;
+    }
+
+
+    @media only screen and (max-width: 598px) {
+
+
+
+        .titlebar {
+            display: block;
+            font-size: 1.5rem !important;
+            text-align: center !important;
+        }
+
+
+        h1.titlebar {
+            display: none !important;
+        }
+
+
+
+        ._filter_items {
+
+            font-size: 1rem !important;
+
+        }
+
+        ._filter_items ._item_title {
+
+            margin-bottom: inherit;
+        }
+
+
+        ._filter_item_outer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        ._filter_items img {
+            width: 90% !important;
+            margin: 0 auto;
+        }
+
+        ._filter_items a {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        ._brand_logos img {
+            width: 60% !important;
+            margin: 8px auto;
+        }
+
+        ._filter_items h3 {
+            font-size: 1.5rem !important;
+        }
+
+        ._filter_sections a {
+            padding: 0 !important;
+        }
+
+        .carousel-control {
+            display: block !important;
+        }
+
+        .scroll-container {
+            justify-content: flex-start !important;
+        }
+
+    }
+
+    ._filter_sections {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    ._carousel {
+        position: relative;
+        max-width: 1000px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .scroll-container {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        cursor: pointer;
+        height: auto;
+        overflow-y: hidden;
+        margin-bottom: 16px;
+        justify-content: flex-start;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+
+    }
+
+
+    .scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .scroll-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 210px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .scroll-item img {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+
+    ._carousel-control {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+    }
+
+    ._carousel-control:hover{
+        opacity: 1;
+    }
+
+    .scroll-container:hover ~ ._carousel-control {
+        opacity: 1;
+    }
+
+
+    ._carousel-control.next {
+        right: 10px;
+        padding: 8px 12px 8px 13px;
+        opacity: 1;
+    }
+
+
+    ._carousel-control.next:after {
+        content: '\276F';
+    }
+
+    ._carousel-control.prev {
+        left: 10px;
+        padding: 8px 13px 8px 12px;
+        opacity: 1;
+    }
+
+    ._carousel-control.prev:after {
+        content: '\276E';
+    }
+
+
+    ._hyphen span::before {
+        content: '\201C';
+    }
+
+    ._apos span::before {
+        content: '\0027 \0027';
+
+
+
+</style>
+
+<style>
+
+    ._recommended-accessory-marketing-intro{
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 32px;
+        justify-content: center;
+    }
+    ._recommended-accessory-marketing-button.view-all {
+        font-size: 1rem;
+        color: #000;
+        text-transform: uppercase;
+        background: #fff;
+        border: 1px solid #464647;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        border: 1px solid #464647;
+        box-shadow: 0 3px 3px #00000029;
+        border-radius: 3px;
+        padding: 9px 16px 6px;
+        text-decoration: none;
+
+    }
+
+    ._recommended-accessories-marketing {
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    ._recommended-accessory-marketing {
+        height: auto;
+        max-width: 188px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 12px 24px 0;
+        max-height: 322px;
+        justify-content: space-between;
+    }
+  
+      .recommended-accessory-marketing {
+        background-color: #fff;
+    }
+
+
+
+    @media screen and (max-width:598px){
+        ._recommended-accessory-marketing {
+            max-width: 174px !important;
+            align-items: center;
+            text-align: center;
+        }
+
+        a._recommended-accessory-marketing-button {
+            font-size: 14px !important ;
+            padding: 9px 12px!important ;
+            text-decoration: none !important;
+        }
+
+        ._recommended-accessory-marketing-copy a {
+            text-align: center!important;
+            font-size: 14px;
+            line-height: 1rem;
+        }
+    }
+
+    ._recommended-accessory-marketing img {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+
+    ._recommended-accessory-marketing-copy {
+        display: flex;
+        flex-direction: column;
+            mix-blend-mode: multiply;
+    }
+
+    ._recommended-accessory-marketing-copy a {
+        background-color: #fff;
+        padding: 0;
+        width: 100%;
+        min-width: auto;
+        text-align: left;
+        text-transform: none !important;
+    }
+
+
+    ._recommended-accessory-marketing-title {
+        margin: 0px !important;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+
+
+
+    ._recommended-accessory-marketing-price {
+        font-size: 18px;
+        color: #d04500;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+
+
+
+    a._recommended-accessory-marketing-button {
+        font-size: 1rem ;
+        text-transform: uppercase ;
+        color: #fff ;
+        background: #464647 ;
+        font-family: 'Univers LT Std', 'Verdana', 'Arial', sans-serif ;
+        border: 1px solid #464647 ;
+        box-shadow: 0 3px 3px #00000029 ;
+        border-radius: 3px ;
+        padding: 9px 12px 6px ;
+        width: 100% ;
+        max-width: 130px !important;
+        min-width: 90px  !important;
+        display: flex ;
+        justify-content: center ;
+        text-decoration: none !important;
+        text-align: center;
+    }
+
+    a._recommended-accessory-marketing-button:hover {
+        color: #fff !important;
+        background: #333 !important;
+        cursor: pointer !important;
+    }
+
+
+
+
+</style>
+<style>
+    .pb_clearance_tag {
+        background-image: url(https://www.performancebike.com/content/skins/shared/images/flags/tag-sale.png);
+        height: 77.5px;
+    }
+    .pb_clearance_tag {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        position: absolute;
+        top: 3px;
+        left: 0px;
+        width: 20px;
+    }
+
+</style>
+
+<div id="lp-container" style="margin-top: 8px !important;">
+    <div class="_carousel" data-current-index="0">
+        <button aria-label="previous" class="_carousel-control prev" id="prevButton" onclick="scrollPrev()" style="display: none;"></button>
+        <div class="scroll-container" id="scrollContainer">
+
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1057166">
+                    <a href="https://www.performancebike.com/ritchey-wcs-xc-pedals-black-65455317002/p1057166" tabindex="-1" aria-label="Ritchey WCS XC Pedals (Black)"><img src="assets/65455317002.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/ritchey-wcs-xc-pedals-black-65455317002/p1057166" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Ritchey WCS XC Pedals</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$164.95</s> Sale: $99.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1057166, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1224338">
+                    <a href="https://www.performancebike.com/shimano-pdef202-urban-flat-pedals-black-epdef202l/p1224338" tabindex="-1" aria-label="Shimano PD-EF202 Urban Flat Pedals (Black)"><img src="assets/epdef202l.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/shimano-pdef202-urban-flat-pedals-black-epdef202l/p1224338" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Shimano PD-EF202 Urban Flat Pedals</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$48.00</s> Sale: $29.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1224338, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="315351">
+                    <a href="https://www.performancebike.com/zipp-service-course-bar-tape-black-00.1915.126.010/p315351" tabindex="-1" aria-label="Zipp Service Course Bar Tape (Black)"><img src="assets/00.1915.126.010.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/zipp-service-course-bar-tape-black-00.1915.126.010/p315351" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Zipp Service Course Bar Tape</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$29.99</s> Sale: $23.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 315351, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1410792">
+                    <a href="https://www.performancebike.com/specialized-blur-neck-gaiter-spruce-64822-5930/p1410792" tabindex="-1" aria-label="Specialized Blur Neck Gaiter (Spruce)"><img src="assets/64822-5930.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/specialized-blur-neck-gaiter-spruce-64822-5930/p1410792" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Specialized Blur Neck Gaiter</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$19.95</s> Sale: $6.75
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1410792, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1360233">
+                    <a href="https://www.performancebike.com/specialized-primeseries-thermal-neck-gaiter-white-mountains-64822-5520/p1360233" tabindex="-1" aria-label="Specialized Prime-Series Thermal Neck Gaiter (White Mountains)"><img src="assets/64822-5520.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/specialized-primeseries-thermal-neck-gaiter-white-mountains-64822-5520/p1360233" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Specialized Prime-Series Thermal Neck Gaiter</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$17.95</s> Sale: $8.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1360233, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1410834">
+                    <a href="https://www.performancebike.com/specialized-distortion-neck-gaiter-vivid-coral-64822-6020/p1410834" tabindex="-1" aria-label="Specialized Distortion Neck Gaiter (Vivid Coral)"><img src="assets/64822-6020.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/specialized-distortion-neck-gaiter-vivid-coral-64822-6020/p1410834" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Specialized Distortion Neck Gaiter</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$14.95</s> Sale: $6.75
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1410834, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1491396">
+                    <a href="https://www.performancebike.com/lezyne-ktv-drive-pro-taillight-black-150-lumens-1-led-12rpro-v504/p1491396" tabindex="-1" aria-label="Lezyne KTV Drive Pro+ Taillight (Black) (150 Lumens)"><img src="assets/1-led-12rpro-v504.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/lezyne-ktv-drive-pro-taillight-black-150-lumens-1-led-12rpro-v504/p1491396" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Lezyne KTV Drive Pro+ Taillight</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$34.99</s> Sale: $22.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1491396, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1360231">
+                    <a href="https://www.performancebike.com/specialized-primeseries-thermal-neck-gaiter-blush-64822-5500/p1360231" tabindex="-1" aria-label="Specialized Prime-Series Thermal Neck Gaiter (Blush)"><img src="assets/64822-5500.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/specialized-primeseries-thermal-neck-gaiter-blush-64822-5500/p1360231" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Specialized Prime-Series Thermal Neck Gaiter</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$17.95</s> Sale: $8.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1360231, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1491394">
+                    <a href="https://www.performancebike.com/lezyne-ktv-drive-pro-300-headlight-black-1-led-19-v204/p1491394" tabindex="-1" aria-label="Lezyne KTV Drive Pro 300+ Headlight (Black)"><img src="assets/1-led-19-v204.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/lezyne-ktv-drive-pro-300-headlight-black-1-led-19-v204/p1491394" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Lezyne KTV Drive Pro 300+ Headlight</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$34.99</s> Sale: $22.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1491394, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="900277">
+                    <a href="https://www.performancebike.com/nashbar-soho-pedals-black-ti-soho/p900277" tabindex="-1" aria-label="Nashbar Soho Pedals (Black)"><img src="assets/ti-soho.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/nashbar-soho-pedals-black-ti-soho/p900277" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Nashbar Soho Pedals</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$39.99</s> Sale: $14.99
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 900277, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="1547423">
+                    <a href="https://www.performancebike.com/silca-grinta-handlebar-bag-black-am-bg-017-asy-0100/p1547423" tabindex="-1" aria-label="Silca Grinta Handlebar Bag (Black)"><img src="assets/am-bg-017-asy-0100.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/silca-grinta-handlebar-bag-black-am-bg-017-asy-0100/p1547423" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Silca Grinta Handlebar Bag</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$95.00</s> Sale: $67.00
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 1547423, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+            <div class="_recommended-accessory-marketing scroll-item" style="position: relative;"> 
+                <div class="_recommended-accessory-marketing-copy" data-id="539690">
+                    <a href="https://www.performancebike.com/panaracer-schrader-rim-to-presta-valve-nuts-10-pack-nt-spacer10/p539690" tabindex="-1" aria-label="Panaracer Schrader Rim to Presta Valve Nuts (10 Pack)"><img src="assets/nt-spacer10.jpg" role="presentation" alt=""></a>
+
+                    <a href="https://www.performancebike.com/panaracer-schrader-rim-to-presta-valve-nuts-10-pack-nt-spacer10/p539690" style="text-decoration: none;" class="_recommended-accessory-marketing-title">Panaracer Schrader Rim to Presta Valve Nuts</a>                   
+                    <p class="_recommended-accessory-marketing-price" style="font-size: 18px !important;">
+                        <s style="color: #707070; font-size:0.95rem">$14.75</s> Sale: $11.49
+                        
+                        <br>
+                        
+                </p></div>
+                <a href="https://www.performancebike.com/#" tabindex="0" class="_recommended-accessory-marketing-button" onclick="AddToCart(this, 539690, 0, 1); return false;">Add to Cart</a>
+                <div class="pb_clearance_tag" aria-hidden="true"></div>
+            </div>  
+
+
+            
+
+
+
+
+
+        </div>
+        <button aria-label="next" class="_carousel-control next" id="nextButton" onclick="scrollNext()" style="display: block;"></button>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        function removeOffSpanIfNoSTag() {
+            let priceElements = document.querySelectorAll('._recommended-accessory-marketing-price');
+            priceElements.forEach(function(priceElement) {
+                let sTag = priceElement.querySelector('s');
+                if (!sTag) {
+                    let spanOff = priceElement.querySelector('span');
+                    if (spanOff && spanOff.textContent.includes("OFF")) {
+                        spanOff.remove();
+                    }
+                }
+            });
+        }
+        // Call the function
+        removeOffSpanIfNoSTag();
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select all elements with the class '_recommended-accessory-marketing-price'
+        const priceElements = document.querySelectorAll('._recommended-accessory-marketing-price');
+
+        priceElements.forEach(function(priceElement) {
+            const hasStrikethrough = priceElement.querySelector('s');
+
+            if (!hasStrikethrough) {
+                const marketingDiv = priceElement.closest('._recommended-accessory-marketing');
+                const button = marketingDiv.querySelector('._recommended-accessory-marketing-button');
+                const productLink = marketingDiv.querySelector('a[href]');
+
+                if (button && productLink) {
+
+                    button.textContent = "View Item";
+                    button.href = productLink.href; 
+                    button.removeAttribute('onclick');
+                    button.style.backgroundColor = '#464647';
+                    button.style.color = '#fff';
+                    button.style.border = '1px solid #464647';
+                }
+            }
+        });
+    });
+
+
+</script>
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const titles = document.querySelectorAll("._recommended-accessory-marketing-title");
+        titles.forEach(title => {
+            if (title.textContent.length > 100) {
+                title.textContent = title.textContent.slice(0, 100);
+            }
+        });
+    });
+
+
+</script>
+
+<script type="text/javascript">
+function updateImageSrcSmall() {
+    const smallImages = document.querySelectorAll('img');
+
+    smallImages.forEach((img) => {
+        const src = img.getAttribute('src');
+
+        if (src && src.includes('cdn-cgi/image/f=auto,width=200/')) {
+            const updatedSrc = src.replace(
+                'cdn-cgi/image/f=auto,width=200/',
+                'cdn-cgi/image/f=auto,width=436/'
+            );
+            img.setAttribute('src', updatedSrc);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', updateImageSrcSmall);
+</script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        function cleanLinkText() {
+            // Select all <a> tags with the class "_recommended-accessory-marketing-title"
+            const links = document.querySelectorAll('._recommended-accessory-marketing-title');
+
+            // Keywords to be removed from the text
+            const keywords = ["Road Bike", "Gravel Bike", "Mountain Bike"];
+
+            // Loop through each <a> tag
+            links.forEach(link => {
+                let text = link.textContent;
+
+                // Remove each keyword from the text content
+                keywords.forEach(keyword => {
+                    text = text.replace(keyword, '').trim();
+                });
+
+                // Remove the first three sets of parentheses
+                for (let i = 0; i < 3; i++) {
+                    text = text.replace(/\s*\(.*?\)\s*/, '').trim();
+                }
+
+                // Update the <a> tag's text content
+                link.textContent = text;
+            });
+        }
+
+        // Call the function after DOM is fully loaded
+        cleanLinkText();
+    });
+
+
+
+</script>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    const MOBILE_BREAKPOINT = 598;
+
+    // Scroll ONE ITEM at a time
+    function getItemWidth(carousel) {
+        const scrollContainer = carousel.querySelector('.scroll-container');
+        const firstItem = scrollContainer.querySelector('.scroll-item');
+        return firstItem ? firstItem.offsetWidth : 200; // fallback
+    }
+
+    function updateControls(carousel, currentIndex) {
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const scrollContainer = carousel.querySelector('.scroll-container');
+        const totalItems = scrollContainer.children.length;
+
+        if (currentIndex === 0 && window.innerWidth >= MOBILE_BREAKPOINT) {
+            prevButton.style.display = 'none';
+        } else {
+            prevButton.style.display = 'block';
+        }
+
+        if (currentIndex === totalItems - 1 && window.innerWidth >= MOBILE_BREAKPOINT) {
+            nextButton.style.display = 'none';
+        } else {
+            nextButton.style.display = 'block';
+        }
+    }
+
+    function scrollNext(carousel) {
+        const scrollContainer = carousel.querySelector('.scroll-container');
+        const itemWidth = getItemWidth(carousel);
+        const totalItems = scrollContainer.children.length;
+
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (currentIndex < totalItems - 1) {
+            currentIndex++;
+            scrollContainer.scrollLeft += itemWidth;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function scrollPrev(carousel) {
+        const scrollContainer = carousel.querySelector('.scroll-container');
+        const itemWidth = getItemWidth(carousel);
+        let currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+
+        if (currentIndex > 0) {
+            currentIndex--;
+            scrollContainer.scrollLeft -= itemWidth;
+        }
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function onScroll(carousel) {
+        const scrollContainer = carousel.querySelector('.scroll-container');
+        const itemWidth = getItemWidth(carousel);
+        const scrollLeft = scrollContainer.scrollLeft;
+        const currentIndex = Math.round(scrollLeft / itemWidth);
+
+        carousel.setAttribute('data-current-index', currentIndex);
+        updateControls(carousel, currentIndex);
+    }
+
+    function initializeCarousel(carousel) {
+        const scrollContainer = carousel.querySelector('.scroll-container');
+
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+
+        prevButton.addEventListener('click', function () {
+            scrollPrev(carousel);
+        });
+
+        nextButton.addEventListener('click', function () {
+            scrollNext(carousel);
+        });
+
+        scrollContainer.addEventListener('scroll', function () {
+            onScroll(carousel);
+        });
+
+        carousel.setAttribute('data-current-index', 0);
+        updateControls(carousel, 0);
+    }
+
+    const carousels = document.querySelectorAll('._carousel');
+    carousels.forEach(initializeCarousel);
+
+    window.addEventListener('resize', function () {
+        carousels.forEach(function (carousel) {
+            const currentIndex = parseInt(carousel.getAttribute('data-current-index'), 10) || 0;
+            updateControls(carousel, currentIndex);
+        });
+    });
+});
+</script>
+   <a class="_view_all_arrow" href="https://www.performancebike.com/search?dc=brg_dyn_inp94dz36o#scroll-to-results" data-event="home-category-hosted-content-c3639">View All Top Deals</a>
+</div>
+</div>
+        </div>
+<div>
+            <div>
+            <div style=" max-width: 1000px !important; width: 100% !important; margin: 0 auto 64px !important;">
+<div class="_tab">
+  <h2 class="_tablinks">Hot &amp; New Products</h2>
 </div>
 
 <div class="_tabcontent" id="Trending_Products">
@@ -1670,74 +3261,74 @@ window.addEventListener('load', startScroll);
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1572819">
-                    <a href="/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571" tabindex="-1" aria-label="Shimano CL-MT001 SPD Multi-Entry Cleats"><img src="assets/share/large/bikes/shimano/iclmt001.jpg" alt="" role="presentation"></a>
-                    <a href="/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Shimano CL-MT001 SPD Multi-Entry Cleats</a>                   
+                    <a href="https://www.performancebike.com/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Shimano CL-MT001 SPD Multi-Entry Cleats"><img loading="lazy" src="assets/iclmt001.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Shimano CL-MT001 SPD Multi-Entry Cleats</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/shimano-clmt001-spd-multientry-cleats-black-4-iclmt001/p1662577?v=1662571" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1798167">
-                    <a href="/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167" tabindex="-1" aria-label="Garmin Varia RearVue 820 Radar Tail Light"><img src="assets/share/large/bikes/garmin/010-03180-00.jpg" alt="" role="presentation"></a>
-                    <a href="/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Garmin Varia RearVue 820 Radar Tail Light</a>                   
+                    <a href="https://www.performancebike.com/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Garmin Varia RearVue 820 Radar Tail Light"><img loading="lazy" src="assets/010-03180-00.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Garmin Varia RearVue 820 Radar Tail Light</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/garmin-varia-rearvue-820-radar-tail-light-black-010-03180-00/p1798167" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1798134">
-                    <a href="/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952" tabindex="-1" aria-label="Silca Ultimate 700c TPU Inner Tube (Presta)"><img src="assets/share/large/bikes/silca/am-ac-065-asy-0100.jpg" alt="" role="presentation"></a>
-                    <a href="/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca Ultimate 700c TPU Inner Tube (Presta)</a>                   
+                    <a href="https://www.performancebike.com/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Silca Ultimate 700c TPU Inner Tube (Presta)"><img loading="lazy" src="assets/am-ac-065-asy-0100.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca Ultimate 700c TPU Inner Tube</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/silca-ultimate-700c-tpu-inner-tube-presta-24-43mm-50mm-am-ac-065-asy-0100/p1675304?v=1671952" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1663603">
-                    <a href="/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011" tabindex="-1" aria-label="Silca StripChip Hot Melt Chain Degreaser"><img src="assets/share/large/bikes/silca/am-ac-058-asy-0100.jpg" alt="" role="presentation"></a>
-                    <a href="/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca StripChip Hot Melt Chain Degreaser</a>                   
+                    <a href="https://www.performancebike.com/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Silca StripChip Hot Melt Chain Degreaser"><img loading="lazy" src="assets/am-ac-058-asy-0100.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca StripChip Hot Melt Chain Degreaser</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/silca-stripchip-hot-melt-chain-degreaser-am-ac-058-asy-0100/p1546011" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1574805">
-                    <a href="/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010" tabindex="-1" aria-label="Silca Wax Melting System"><img src="assets/share/large/bikes/silca/am-ac-057-asy-0100.jpg" alt="" role="presentation"></a>
-                    <a href="/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca Wax Melting System</a>                   
+                    <a href="https://www.performancebike.com/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Silca Wax Melting System"><img loading="lazy" src="assets/am-ac-057-asy-0100.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Silca Wax Melting System</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/silca-wax-melting-system-grey-am-ac-057-asy-0100/p1546010" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1555690">
-                    <a href="/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707" tabindex="-1" aria-label="Continental Terra Competition Tubeless Gravel Tire"><img src="assets/share/large/bikes/continental/1020250000.jpg" alt="" role="presentation"></a>
-                    <a href="/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Continental Terra Competition Tubeless Gravel Tire</a>                   
+                    <a href="https://www.performancebike.com/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Continental Terra Competition Tubeless Gravel Tire"><img loading="lazy" src="assets/1020250000.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Continental Terra Competition Tubeless Gravel Tire</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/continental-terra-competition-tubeless-gravel-tire-black-1020260000/p1803241?v=1802707" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1647699">
-                    <a href="/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121" tabindex="-1" aria-label="SRAM Force AXS Flattop Road Chain"><img src="assets/share/large/bikes/sram/00.2518.072.012.jpg" alt="" role="presentation"></a>
-                    <a href="/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">SRAM Force AXS Flattop Road Chain</a>                   
+                    <a href="https://www.performancebike.com/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="SRAM Force AXS Flattop Road Chain"><img loading="lazy" src="assets/00.2518.072.012.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">SRAM Force AXS Flattop Road Chain</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/sram-force-axs-flattop-road-chain-purple-12-13-speed-114-links-00.2518.072.012/p1645001?v=1640121" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1661591">
-                    <a href="/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912" tabindex="-1" aria-label="SRAM Rival AXS XPLR Gravel Groupset"><img src="assets/share/large/bikes/sram/sramrival-e1grp2-bdl.jpg" alt="" role="presentation"></a>
-                    <a href="/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">SRAM Rival AXS XPLR Gravel Groupset</a>                   
+                    <a href="https://www.performancebike.com/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="SRAM Rival AXS XPLR Gravel Groupset"><img loading="lazy" src="assets/sramrival-e1grp2-bdl.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">SRAM Rival AXS XPLR Gravel Groupset</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/sram-rival-axs-xplr-gravel-groupset-black-1-x-13-speed-1046t-sramrival-e1grp2-bdl/p1644912" data-event="home-category-hosted-content-c3639">View Item</a>
             </div>  
             
             <div class="__recommended-accessory-marketing__ __scroll-item__"> 
                 <div class="__recommended-accessory-marketing-copy__" data-id="1626554">
-                    <a href="/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" tabindex="-1" aria-label="Wahoo Fitness ELEMNT ROAM 3 GPS Cycling Computer"><img src="assets/share/large/bikes/wahoo/wfcc8.jpg" alt="" role="presentation"></a>
-                    <a href="/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Wahoo Fitness ELEMNT ROAM 3 GPS Cycling Computer</a>                   
+                    <a href="https://www.performancebike.com/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" data-event="home-category-hosted-content-c3639" tabindex="-1" aria-label="Wahoo Fitness ELEMNT ROAM 3 GPS Cycling Computer"><img loading="lazy" src="assets/wfcc8.jpg" alt="" role="presentation"></a>
+                    <a href="https://www.performancebike.com/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" data-event="home-category-hosted-content-c3639" style="text-decoration: none;" class="__recommended-accessory-marketing-title__">Wahoo Fitness ELEMNT ROAM 3 GPS Cycling Computer</a>                   
                 </div>
-                <a class="__recommended-accessory-marketing-button__" href="/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" tabindex="-1">View Item</a>
+                <a class="__recommended-accessory-marketing-button__" href="https://www.performancebike.com/wahoo-fitness-elemnt-roam-3-gps-cycling-computer-black-wfcc8/p1628606" data-event="home-category-hosted-content-c3639" tabindex="-1">View Item</a>
             </div>  
             
 
@@ -1747,7 +3338,7 @@ window.addEventListener('load', startScroll);
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
     function removeOffSpanIfNoSTag() {
         let priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
@@ -1766,7 +3357,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
+<script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
     // Select all elements with the class '__recommended-accessory-marketing-price__'
     const priceElements = document.querySelectorAll('.__recommended-accessory-marketing-price__');
@@ -1792,7 +3383,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
+<script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
     const titles = document.querySelectorAll(".__recommended-accessory-marketing-title__");
     titles.forEach(title => {
@@ -1803,7 +3394,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<script>
+<script type="text/javascript">
 function cleanImageSrcSmall() {
     const smallImages = document.querySelectorAll('img');
     smallImages.forEach((img) => {
@@ -1817,7 +3408,7 @@ function cleanImageSrcSmall() {
 document.addEventListener('DOMContentLoaded', cleanImageSrcSmall);
 </script>
 
-<script>
+<script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
     function cleanLinkText() {
         const links = document.querySelectorAll('.__recommended-accessory-marketing-title__');
@@ -1838,7 +3429,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
+<script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function () {
     const MOBILE_BREAKPOINT = 598;
 
@@ -1925,14 +3516,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
-<a class="_view_all_arrow" href="/hot-and-new-bike-products/c27061" data-event="home-category-hosted-content-c3639">View All Hot & New Products</a>
+<a class="_view_all_arrow" href="https://www.performancebike.com/hot-and-new-bike-products/c27061" data-event="home-category-hosted-content-c3639">View All Hot &amp; New Products</a>
 </div>
 
 </div>
         </div>
-</div>
+        </div>
 <div>
-<style>
+            <style>
         
         #sub-cat-page .cat-grid_03 {
     align-items:center;
@@ -1994,9 +3585,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
                 <div id="hero-banner">
         <div class="sc-desktop" style="height: 460px; width: 100%; margin: 0 auto">
-            <a data-url="/bike-bicycle-groupsets/c16817" data-promo-id="/bike-bicycle-groupsets/c16817"  href="/bike-bicycle-groupsets/c16817">
-                <img src="assets/share/sites/performancebike/home-promo/sliders/groupset_slider.jpg"
-                    alt="Pre-Build Groupsets! Just for you - Groupsets built for every rider" style="width: 100%; height: 460px; object-fit: cover;">
+            <a data-url="/bike-bicycle-groupsets/c16817" data-promo-id="/bike-bicycle-groupsets/c16817" href="https://www.performancebike.com/bike-bicycle-groupsets/c16817" data-event="home-category-hosted-content-c3639">
+                <img loading="lazy" src="assets/groupset_slider.jpg" alt="Pre-Build Groupsets! Just for you - Groupsets built for every rider" style="width: 100%; height: 460px; object-fit: cover;">
             </a>
         </div>
 
@@ -2006,28 +3596,25 @@ document.addEventListener("DOMContentLoaded", function () {
             
                <div class="cat-grid_03">
 
-        <a data-url="/road-groupsets-parts/c16819" data-promo-id="/road-groupsets-parts/c16819"  href="/road-groupsets-parts/c16819" class="grid-item_03">
-            <img src="assets/share/large/bikes/sram/00.7918.325.000.jpg"
-                alt="" >
-            <p align="center" >Road Bike Groupsets</p>
+        <a data-url="/road-groupsets-parts/c16819" data-promo-id="/road-groupsets-parts/c16819" href="https://www.performancebike.com/road-groupsets-parts/c16819" data-event="home-category-hosted-content-c3639" class="grid-item_03">
+            <img loading="lazy" src="assets/00.7918.325.000.jpg" alt="">
+            <p align="center">Road Bike Groupsets</p>
         </a>
-        <a data-url="/gravel-bike-groupsets/c28911" data-promo-id="/gravel-bike-groupsets/c28911"  href="/gravel-bike-groupsets/c28911" class="grid-item_03">
-            <img src="assets/share/large/bikes/shimano/shimanogrxgrp1-bdl.jpg"
-                alt="" >
-            <p align="center" >Gravel Bike Groupsets</p>
+        <a data-url="/gravel-bike-groupsets/c28911" data-promo-id="/gravel-bike-groupsets/c28911" href="https://www.performancebike.com/gravel-bike-groupsets/c28911" data-event="home-category-hosted-content-c3639" class="grid-item_03">
+            <img loading="lazy" src="assets/shimanogrxgrp1-bdl.jpg" alt="">
+            <p align="center">Gravel Bike Groupsets</p>
         </a>
-        <a data-url="/mountain-groupsets-parts/c16818" data-promo-id="/mountain-groupsets-parts/c16818"  href="/mountain-groupsets-parts/c16818" class="grid-item_03">
-            <img src="assets/share/large/bikes/sram/00.7918.076.000.jpg"
-                alt="" >
+        <a data-url="/mountain-groupsets-parts/c16818" data-promo-id="/mountain-groupsets-parts/c16818" href="https://www.performancebike.com/mountain-groupsets-parts/c16818" data-event="home-category-hosted-content-c3639" class="grid-item_03">
+            <img loading="lazy" src="assets/00.7918.076.000.jpg" alt="">
             <p>Mountain Bike Groupsets</p>
         </a>
 
     </div>
             
 </div>
-</div>
+        </div>
 <div>
-<style>
+            <style>
     #sub-cat-page .cat-grid_05 {
         align-items: center;
         background-color: #fff !important;
@@ -2148,52 +3735,52 @@ document.addEventListener("DOMContentLoaded", function () {
     <h3 style="display: block; text-align: center; letter-spacing: 1.5px;">Top Categories</h3>
     <div class="cat-grid_05">
 
-        <a data-url="/bike-bicycle-parts-components/c15140" data-promo-id="/bike-bicycle-parts-components/c15140" href="/bike-bicycle-parts-components/c15140" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/shimano/shimanogrxgrp1-bdl.jpg" alt="">
+        <a data-url="/bike-bicycle-parts-components/c15140" data-promo-id="/bike-bicycle-parts-components/c15140" href="https://www.performancebike.com/bike-bicycle-parts-components/c15140" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/shimanogrxgrp1-bdl.jpg" alt="">
             <p align="center">Parts</p>
         </a>
-        <a data-url="/bikes-frames/c14941" data-promo-id="/bikes-frames/c14941" href="/bikes-frames/c14941" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/specialized/70623-0156.jpg" alt="">
+        <a data-url="/bikes-frames/c14941" data-promo-id="/bikes-frames/c14941" href="https://www.performancebike.com/bikes-frames/c14941" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/70623-0156.jpg" alt="">
             <p align="center">Bikes &amp; Frames</p>
         </a>
-        <a data-url="/cycling-clothing/c14982" data-promo-id="/cycling-clothing/c14982" href="/cycling-clothing/c14982" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/giordana/gicw18-armw-bclw-blck-01.jpg" alt="">
+        <a data-url="/cycling-clothing/c14982" data-promo-id="/cycling-clothing/c14982" href="https://www.performancebike.com/cycling-clothing/c14982" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/gicw18-armw-bclw-blck-01.jpg" alt="">
             <p>Clothing</p>
         </a>
 
 
-        <a data-url="/bike-bicycle-tires/c15343" data-promo-id="/bike-bicycle-tires/c15343" href="/bike-bicycle-tires/c15343" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/continental/01016250000.jpg" alt="">
+        <a data-url="/bike-bicycle-tires/c15343" data-promo-id="/bike-bicycle-tires/c15343" href="https://www.performancebike.com/bike-tires/c15343" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/01016250000.jpg" alt="">
             <p>Tires</p>
         </a>
 
 
-        <a data-url="/bike-bicycle-tubes/c15361" data-promo-id="/bike-bicycle-tubes/c15361" href="/bike-bicycle-tubes/c15361" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/continental/01816310000.jpg" alt="">
+        <a data-url="/bike-bicycle-tubes/c15361" data-promo-id="/bike-bicycle-tubes/c15361" href="https://www.performancebike.com/bike-inner-tubes/c15361" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/01816310000.jpg" alt="">
             <p>Tubes</p>
         </a>
 
-        <a data-url="/bike-accessories/c14831" data-promo-id="/bike-accessories/c14831" href="/bike-accessories/c14831" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/garmin/010-02694-10.jpg" alt="">
+        <a data-url="/bike-accessories/c14831" data-promo-id="/bike-accessories/c14831" href="https://www.performancebike.com/bike-accessories/c14831" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/010-02694-10.jpg" alt="">
             <p align="center">Accessories</p>
         </a>
-        <a data-url="/bike-bicycle-wheel/c16570" data-promo-id="/bike-bicycle-wheel/c16570" href="/bike-bicycle-wheel/c16570" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/specialized/30021-4500.jpg" alt="">
+        <a data-url="/bike-bicycle-wheel/c16570" data-promo-id="/bike-bicycle-wheel/c16570" href="https://www.performancebike.com/bike-wheels-parts/c16570" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/30021-4500.jpg" alt="">
             <p>Wheels &amp; Parts</p>
         </a>
 
-        <a data-url="/shorts-bibs-clothing/c16904" data-promo-id="/shorts-bibs-clothing/c16904" href="/shorts-bibs-clothing/c16904" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/castelli/l4523004010-2.jpg" alt="">
+        <a data-url="/shorts-bibs-clothing/c16904" data-promo-id="/shorts-bibs-clothing/c16904" href="https://www.performancebike.com/shorts-bibs-clothing/c16904" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/l4523004010-2.jpg" alt="">
             <p>Shorts &amp; Bibs</p>
         </a>
 
-        <a data-url="/cycling-jerseys/c15024" data-promo-id="/cycling-jerseys/c15024" href="/cycling-jerseys/c15024" class="grid-item_05" style="color: #fff !important;">
-            <img src="assets/share/large/bikes/pearlizumi/11222404abzl.jpg" alt="">
+        <a data-url="/cycling-jerseys/c15024" data-promo-id="/cycling-jerseys/c15024" href="https://www.performancebike.com/cycling-jerseys/c15024" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/11222404abzl.jpg" alt="">
             <p>Jerseys</p>
         </a>
 
-        <a data-url="/road-bikes-bicycles/c14973" data-promo-id="/road-bikes-bicycles/c14973" href="/road-bikes-bicycles/c14973" class="grid-item_05"  style="color: #fff !important;">
-            <img src="assets/share/large/bikes/specialized/94924-1344.jpg" alt="">
+        <a data-url="/road-bikes-bicycles/c14973" data-promo-id="/road-bikes-bicycles/c14973" href="https://www.performancebike.com/road-bikes-bicycles/c14973" data-event="home-category-hosted-content-c3639" class="grid-item_05" style="color: #fff !important;">
+            <img loading="lazy" src="assets/94924-1344.jpg" alt="">
             <p>Road Bikes</p>
         </a>
     </div>
@@ -2201,9 +3788,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </div>
-</div>
+        </div>
 <div>
-<style>
+            <style>
     #sub-cat-page .cat-grid_04 .grid-item_04 {
         align-items: center;
         background-color: #333;
@@ -2401,30 +3988,30 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="cat-grid_04">
     
     
-                <div class="_blog_item"><a href="/ride-like-the-pros/cp1867" data-event="blog-list-image-click" title="Gravel Shoes & Pedals" class="_blog_image" tabindex="-1"><img src="assets/share/content-pages/performancebike/ride_like_pro-mtb/images/hero_image_01.jpg" alt="" role="presentation"  style="width: 320; height: 143px;"></a>
-            <div class="_blog_content"><a href="/ride-like-the-pros/cp1867" class="_blog_title" data-event="blog-list-title-click">Ride Like The Pro's with Keegan Swenson </a>
+                <div class="_blog_item"><a href="https://www.performancebike.com/ride-like-the-pros/cp1867" data-event="home-category-hosted-content-c3639" title="Gravel Shoes &amp; Pedals" class="_blog_image" tabindex="-1"><img loading="lazy" src="assets/hero_image_01.jpg" alt="" role="presentation" style="width: 320; height: 143px;"></a>
+            <div class="_blog_content"><a href="https://www.performancebike.com/ride-like-the-pros/cp1867" data-event="home-category-hosted-content-c3639" class="_blog_title">Ride Like The Pro's with Keegan Swenson </a>
                 <div class="_blog_date">Aug 14, 2026</div>
                 <div class="_blog_synopsis">Known for his massive power output, technical bike handling, and relentless pace across some of the toughest gravel races in the world, Keegan relies on this Specialized gravel setup to compete at the highest level of the sport. </div>
-                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1867" data-event="blog-list-more-click" href="/ride-like-the-pros/cp1867" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's with Keegan Swenson American gravel racer Keegan Swenson has become one of the most dominant forces in endurance cycling, earning major victories and multiple standout performances in the prestigious Life Time Grand Prix series."><span class="_blog-after _view_all_arrow" style="float: left;">Ride Like Keegan (Mtb Setup)</span></a></div>
+                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1867" data-event="blog-list-more-click" href="https://www.performancebike.com/ride-like-the-pros/cp1867" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's with Keegan Swenson American gravel racer Keegan Swenson has become one of the most dominant forces in endurance cycling, earning major victories and multiple standout performances in the prestigious Life Time Grand Prix series."><span class="_blog-after _view_all_arrow" style="float: left;">Ride Like Keegan (Mtb Setup)</span></a></div>
             </div>
         </div>
     
-              <div class="_blog_item"><a data-url="/ride-like-the-pros/cp1841" data-promo-id="/ride-like-the-pros/cp1841" href="/ride-like-the-pros/cp1841" data-event="blog-list-image-click" title="Tools for Gold: With Remco Evenepoel" class="_blog_image" tabindex="-1"><img src="assets/share/contentpages/performancebike/pro_rider_pages/02/hero_image_02.jpg" alt="" role="presentation" style="width: 320; height: 143px;"></a>
-            <div class="_blog_content"><a data-url="/ride-like-the-pros/cp1841" data-promo-id="/ride-like-the-pros/cp1841" href="/ride-like-the-pros/cp1841" class="_blog_title" data-event="blog-list-title-click">Ride Like The Pro's - with Keegan Swenson</a>
+              <div class="_blog_item"><a data-url="/ride-like-the-pros/cp1841" data-promo-id="/ride-like-the-pros/cp1841" href="https://www.performancebike.com/ride-like-the-pros/cp1841" data-event="home-category-hosted-content-c3639" title="Tools for Gold: With Remco Evenepoel" class="_blog_image" tabindex="-1"><img loading="lazy" src="assets/hero_image_02.jpg" alt="" role="presentation" style="width: 320; height: 143px;"></a>
+            <div class="_blog_content"><a data-url="/ride-like-the-pros/cp1841" data-promo-id="/ride-like-the-pros/cp1841" href="https://www.performancebike.com/ride-like-the-pros/cp1841" data-event="home-category-hosted-content-c3639" class="_blog_title">Ride Like The Pro's - with Keegan Swenson</a>
                 <div class="_blog_date">Mar 12, 2026</div>
                 <div class="_blog_synopsis">American gravel racer Keegan Swenson has become one of the most dominant forces in endurance cycling, earning major victories and multiple standout performances in the prestigious Life Time Grand Prix series.</div>
-                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1841" data-event="blog-list-more-click" data-promo-id="/ride-like-the-pros/cp1841" href="/ride-like-the-pros/cp1841" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's - with Keegan Swenson: American gravel racer Keegan Swenson has become one of the most dominant forces in endurance cycling, earning major victories and multiple standout performances in the prestigious Life Time Grand Prix series."><span class="_blog-after _view_all_arrow" style="float: left;">Ride Like Keegan</span></a></div>
+                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1841" data-event="blog-list-more-click" data-promo-id="/ride-like-the-pros/cp1841" href="https://www.performancebike.com/ride-like-the-pros/cp1841" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's - with Keegan Swenson: American gravel racer Keegan Swenson has become one of the most dominant forces in endurance cycling, earning major victories and multiple standout performances in the prestigious Life Time Grand Prix series."><span class="_blog-after _view_all_arrow" style="float: left;">Ride Like Keegan</span></a></div>
             </div>
         </div>
        
                
-        <div class="_blog_item"><a data-url="/ride-like-the-pros/cp1840" data-promo-id="/ride-like-the-pros/cp1840" href="/ride-like-the-pros/cp1840" data-event="blog-list-image-click" title="Ride Like The Pro's - with Sofia Gomez Villafañe" class="_blog_image" tabindex="-1"><img src="assets/share/contentpages/performancebike/pro_rider_pages/01/hero_image_02.jpg" alt="" role="presentation"  style="width: 320; height: 143px;"></a>
-            <div class="_blog_content"><a data-url="/ride-like-the-pros/cp1840" data-promo-id="/ride-like-the-pros/cp1840" href="/ride-like-the-pros/cp1840" class="_blog_title" data-event="blog-list-title-click">Ride Like The Pro's - with Sofia Gomez Villafa&ntilde;e
+        <div class="_blog_item"><a data-url="/ride-like-the-pros/cp1840" data-promo-id="/ride-like-the-pros/cp1840" href="https://www.performancebike.com/ride-like-the-pros/cp1840" data-event="home-category-hosted-content-c3639" title="Ride Like The Pro's - with Sofia Gomez VillafaÃƒÂ±e" class="_blog_image" tabindex="-1"><img loading="lazy" src="assets/hero_image_02%281%29.jpg" alt="" role="presentation" style="width: 320; height: 143px;"></a>
+            <div class="_blog_content"><a data-url="/ride-like-the-pros/cp1840" data-promo-id="/ride-like-the-pros/cp1840" href="https://www.performancebike.com/ride-like-the-pros/cp1840" data-event="home-category-hosted-content-c3639" class="_blog_title">Ride Like The Pro's - with Sofia Gomez Villafañe
                 </a>
                 <div class="_blog_date">Mar 12, 2026</div>
-                <div class="_blog_synopsis">American gravel racer Sofia Gomez Villafa&ntilde;e has established herself as one of the top endurance athletes in the sport, earning major victories and consistently finishing at the front of the highly competitive Life Time Grand Prix series. 
+                <div class="_blog_synopsis">American gravel racer Sofia Gomez Villafañe has established herself as one of the top endurance athletes in the sport, earning major victories and consistently finishing at the front of the highly competitive Life Time Grand Prix series. 
                 </div>
-                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1840" data-event="blog-list-more-click" data-promo-id="/ride-like-the-pros/cp1840" href="/ride-like-the-pros/cp1840" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's - with Sofia Gomez Villafa&ntilde;e: American gravel racer Sofia Gomez Villafa&ntilde;e has established herself as one of the top endurance athletes in the sport, earning major victories and consistently finishing at the front of the highly competitive Life Time Grand Prix series. 
+                <div class="_blog_link"><a data-url="/ride-like-the-pros/cp1840" data-event="blog-list-more-click" data-promo-id="/ride-like-the-pros/cp1840" href="https://www.performancebike.com/ride-like-the-pros/cp1840" style="font-family: 'UniversLTStd-Cn', 'verdana', sans-serif; text-transform: none; font-size: 1rem;" title="Ride Like The Pro's - with Sofia Gomez Villafañe: American gravel racer Sofia Gomez Villafañe has established herself as one of the top endurance athletes in the sport, earning major victories and consistently finishing at the front of the highly competitive Life Time Grand Prix series. 
                     "><span class="_blog-after _view_all_arrow" style="float: left;">Ride Like Sofia</span></a></div>
             </div>
         </div>
@@ -2436,19 +4023,19 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 
-    <div class="lp-product-foot"><a data-url="/blog" data-promo-id="/blog" href="/blog">More Articles</a></div>
+    <div class="lp-product-foot"><a data-url="/blog" data-promo-id="/blog" href="https://www.performancebike.com/blog" data-event="home-category-hosted-content-c3639">More Articles</a></div>
 
     <div id="hero-banner">
         <div class="sc-desktop" style="height: 460px; width: 100%; margin: 64px auto">
-            <a data-url="/gift-cards/i844" data-promo-id="/gift-cards/i844" href="/gift-cards/i844">
-                <img src="assets/share/sites/performancebike/home-promo/sliders/gift-card-banner.jpg" alt="Share the gift of cycling - Performance Bicycle Gift Card - Order Now" style="width: 100%; height: 460px; object-fit: cover;">
+            <a data-url="/gift-cards/i844" data-promo-id="/gift-cards/i844" href="https://www.performancebike.com/gift-cards/i844" data-event="home-category-hosted-content-c3639">
+                <img loading="lazy" src="assets/gift-card-banner.jpg" alt="Share the gift of cycling - Performance Bicycle Gift Card - Order Now" style="width: 100%; height: 460px; object-fit: cover;">
             </a>
         </div>
 
     </div>
-</div>
-<div>
-
+        </div>
+        <div>
+            
 <style>
     @media screen {
         @font-face {
@@ -2534,7 +4121,15 @@ document.addEventListener("DOMContentLoaded", function () {
         cursor: default;
     }
 
-    
+    /*
+    @media screen and (max-width: 486px){
+            ._vip_benefits {
+                display: inline-block;
+                text-align: center;
+                margin: 0 auto;
+                }
+    }
+*/
 
     ._vip_benefits div {
         display: grid;
@@ -2596,19 +4191,19 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
 
 <div class="_vip_box" id="_vip_block">
-    <div class="_vip_box_header"><img src="assets/share/sites/performancebike/home/vip/vip_header.jpg" alt="Performance Bicycle VIP gift box"></div>
+    <div class="_vip_box_header"><img loading="lazy" src="assets/vip_header.jpg" alt="Performance Bicycle VIP gift box"></div>
 
     <div style="max-width: 800px; width: 100%; margin: 0 auto;">
         <h3>At Performance Bicycle, get treated like A VIP</h3>
         <p>The Performance Bicycle VIP Rewards Program offers members a range of benefits, spendable rewards points, extended return policies, member only discounts and so much more. The best part, it<span></span>s FREE.</p>
         <div class="_vip_benefits">
 
-            <div><img src="assets/share/sites/performancebike/home/vip/points.png" alt="points">Earn 2X Rewards Points</div>
-            <div><img src="assets/share/sites/performancebike/home/vip/membership.png" alt="membership">Member Only Discounts</div>
-            <div><img src="assets/share/sites/performancebike/home/vip/policies.png" alt="policies">Extended Return Policies</div>
+            <div><img loading="lazy" src="assets/points.png" alt="points">Earn 2X Rewards Points</div>
+            <div><img loading="lazy" src="assets/membership.png" alt="membership">Member Only Discounts</div>
+            <div><img loading="lazy" src="assets/policies.png" alt="policies">Extended Return Policies</div>
 
         </div>
-        <a data-url="/performance-bicycle-vip-rewards/i429" data-promo-id="/performance-bicycle-vip-rewards/i429" href="/performance-bicycle-vip-rewards/i429">
+        <a data-url="/performance-bicycle-vip-rewards/i429" data-promo-id="/performance-bicycle-vip-rewards/i429" href="https://www.performancebike.com/performance-bicycle-vip-rewards/i429" data-event="home-category-hosted-content-c3639">
             <nobr>Get your VIP Status</nobr>
         </a>
     </div>
@@ -2619,6 +4214,8 @@ document.addEventListener("DOMContentLoaded", function () {
      is your gravel riding HQ. Whether you're a speed-focused gravel racer or an adventure-seeking bikepacker, we carry the bikes, parts, accessories, and clothing to fuel your off-road journey.
  <br><br>
 With a wide variety of top brands such as Specialized, Garmin, Shimano, SRAM, and Fox, you are sure to find the best quality bike parts on the market. Many orders qualify for free shipping and our expert customer service agents are standing by to assist with any step of the process.
+</div>
+        </div>
 </div>
 </div>
 </div></div></div></div>
